@@ -21,9 +21,37 @@
     <!-- 파비콘 -->
     <link rel="stylesheet" href="../web01/css/reset.css">
     <style>
-    .hd {width: 100px;position: fixed; top: 0; left: 0; z-index: 999; background: #fff; height: 142px;}
-    .hd:hover{background-color: transparent;}
-        
+    .hd { width: 100%; position:fixed; top: 0; left: 0; z-index:999; 
+    background-color: #fff; height: 142px; }
+    /*.hd:hover { background-color: #fff; }*/
+    .hd_wrap { width: 1200px; margin: 0 auto;}
+    .logo { display:block; width:148px; height:auto; margin-top:40px; margin-bottom: 40px; float:left; }
+    .logo img { display:block; width: 100%; }
+    .tnb { float:right; margin-top: 40px; margin-bottom: 40px; }
+    .tnb a { font-size:14px; color:#333; padding: 14px; font-weight:300; }
+    .tnb a:hover { color: deepskyblue ;font-weight:700; text-decoration: underline; }
+    .gnb { clear:both; }
+    /* clear-fix 처리=> 부모태그  */
+    .gnb:after{ content: "  "; display:block; clear: both;}
+    .gnb > ul:after { content: "  "; display:block; clear: both;}
+    .gnb > ul > li { float:left; width: 20px;height: 40px;line-height: 40;position: relative; }
+    .gnb .dp1 {display:block; color: #eee; font-size: 16px;}
+    .gnb li:hover .dp1 {color: fff;  background-color: gray; }
+    .gnb .sub {display: none; width: 100%; height: auto; position: absolute; top: 40px; background-color: #ccc; left: 0;z-index: 90 ;height: 124px;}
+    .gnb li .sub li {clear:both; height: 30px; line-height: 30;border-bottom: 1px solid #fff;}
+    .gnb li .sub li a { background-color: #ccc; color: #111; font-size: 14px;display: block; text-indent: 2em; overflow: hidden; white-space: nowrap;text-overflow: ellipsis; }         
+
+    
+    .gnb > ul > li { width: 20%; text-align: center; }
+    .gnb li .dp1 { display:block; height:40px; line-height: 40px; background-color: #333; color:#fff; }
+
+    .content {clear:both; width: 100%;}
+    .vs { clear: both; width: 100%; height: auto;}
+   
+
+
+    .ft_logo { display:block; width:148px; height:auto; margin-top:40px; margin-bottom: 40px; float:left; }
+    .ft_logo img { display:block; width: 100%; }
         
     </style>
 </head>
@@ -84,10 +112,10 @@
             </div>
         </header>
         <div class="content"> <!--https://blog.naver.com/theshillain73-->
-            <figure class="photo">
-                <iframe name="vdo2" id="vdo2" width="816" height="459" src="https://www.youtube.com/watch?v=IVNbjTIc9WA" title="서울신라호텔전경" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                <!--<img src="../web01/img/seoulHeat.jpg" alt="서울신라호텔" class="pic">-->
+            <figure class="vs">
+                <video src="./video/The Shilla Seoul.mp4" autoplay muted class="vdo"></video>
             </figure>
+                <!--<img src="../web01/img/seoulHeat.jpg" alt="서울신라호텔" class="pic">-->
             <section class="page" id="page1">
                 <div class="page_wrap">
                     <h2 class="page_tit">스페셜 오퍼</h2>
@@ -162,13 +190,13 @@
             <section class="page" id="page3">
                 <h2 class="page_tit">갤러리</h2>
                 <figure class="vs">
-                    <video src="../web01/video/The Shilla Jeju.mp4" class="vdo" ">controls autoplay muted loop</video> <!--https://www.youtube.com/watch?v=IVNbjTIc9WA-->
+                    <video src="../web01/video/The Shilla Jeju.mp4" autoplay muted loop class="vdo2" "> </video> <!--https://www.youtube.com/watch?v=IVNbjTIc9WA-->
                 </figure>
             </section>
         </div>
         <footer class="ft">
             <div class="ft_wrap">
-                <div class="ft_logo"><img src="../web01/img/logo (2).jpg" alt="logo"></div>
+                <div class="ft_logo"><img src="./img/logo (1).gif" alt="logo"></div>
                 <div class="mid_box">
                     <nav class="fnb">
                         <a href="">개인정보 처리 방침</a>
