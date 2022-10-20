@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>호텔신라</title>
+    <!-- 메타포 -->
+    <meta name="description" content=" 호텔신라 소개">
+    <meta name="keywords" content="호텔신라, Hotel Shilla, 서울신라호텔, 제주신라호텔, 호텔,">
+    <!-- 오픈그래프 -->
+    <meta property="og:site_name" content="호텔신라">
+    <meta property="og:title" content="호텔신라">
+    <meta property="og:url" content="/">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="소개글">
+    <meta property="og:image" content="./img/icon/share.png">
+    <meta property="og:image:width" content="800">
+    <meta property="og:image:height" content="400">
+    
+    <!-- 파비콘 -->
+    <!-- 각 종 플러그인과 설정 파일 -->
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <!-- 구형 브라우저 html5태그 인식 -->
+    <!-- <script src="./js/html5shiv.js"></script> -->
+    <!-- 구형 브라우저에서 css animation 인식 -->
+    <script src="./js/prefixfree.min.js"></script>
+    <!-- 구형 브라우저에서 미디어쿼리 인식 -->
+    <script src="./js/respond.min.js"></script>
+    <!-- jquery 플러그인 연결 -->
+    <script src="./js/jquery-1.11.1.js"></script>
+    <link rel="stylesheet" href="./css/reset2.css">
+    <link rel="stylesheet" href="header.css">
+    <style>
+    /* header.css */
+    /* .hd { width: 100%; height:122px; position:absolute; top: 0; left: 0; z-index:91; background-color:}
+    .hd_wrap { width: 1200px; margin: 0 auto; } */
+    .hd { position:fixed; }
+   
+    
+    /* content */
+    .vs { clear:both; width: 100%; height:300px; overflow: hidden; padding-top: 100px;}
+    .vs img { display:block; width: 100%; height:auto; }
+    .bread { clear:both; width: 100%; line-height: 60px; border-bottom:3px solid #eee; }
+    .bread_fr { width: 1200px; margin: 0 auto; }
+    .page { clear:both; width: 100%; min-height:100vh;}
+    .page:after { content:""; display:block; clear:both; }
+    .page_wrap { width: 1200px; margin: 0 auto; }
+    
+    .page_title {  padding-top: 1em; height: 50px; border-bottom:3px solid rgb(198, 180, 142) }
+    .home { color:#333; }
+
+    .ir_fr {width: 1200px; white-space: pre-wrap; margin: 0px auto; }
+    .con_img {display: block; }
+    .ir_fr h4, .ir_fr p{clear: both; color:rgb(111, 109, 109);}
+    .ir_fr p{font-size: 13px; line-height: 0.5px;}
+
+    .faq_lst {  width:1200px; float:left; padding-top: 30px; }
+    .faq_lst li { clear:both; height:32px; border-bottom:1px solid rgb(181, 180, 180); box-sizing:border-box; }
+    .faq_lst li:first-child { border-top:1px solid  rgb(181, 180, 180) }
+    .faq_lst li span { display:block; box-sizing:border-box; float:left; line-height: 32px; font-size:14px; }
+    .faq_cat { width: 200px; text-align:center; }
+    .faq_con { width: 900px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; color:rgb(111, 109, 109); }
+    
+    
+    </style>
+    <link rel="stylesheet" href="footer.css">
+    <script>
+        $(document).ready(function(){
+        $(".to_top").attr("href", location.href);
+        $(window).scroll(function(){
+            var ht = $(window).height();
+            var tp = $(this).scrollTop();
+            if(tp>=300){
+                $(".to_top").addClass("on");
+                $(".to_top").attr("href", location.href);
+            } else {
+                $(".to_top").removeClass("on");
+                $(".to_top").attr("href", location.href);
+            }
+        });
+    });    
+    </script>
+</head>
+<body>
+    <div class="wrap">
+        <header class="hd">
+            <div class="hd_wrap">
+                <a href="index.html" class="logo"><img src="./img/logo.gif" alt="로고"></a>
+                <nav class="tnb">
+                    <a href="login.html">로그인</a>
+                    <a href="join.html">회원가입</a>
+                    <a href="faq.html">고객문의</a>
+                </nav>
+                <nav class="gnb">
+                    <ul>
+                        <li class="item1">
+                            <a href="" class="dp1">About Company</a>
+                            <ul class="sub">
+                                <li><a href="company.html#page1">기업개요</a></li>
+                                <li><a href="company.html#page2">비젼&미션</a></li>
+                                <li><a href="company.html#page3">연혁</a></li>
+                            </ul>
+                        </li>
+                        <li class="item2">
+                            <a href="" class="dp1">호텔신라</a>
+                            <ul class="sub">
+                                <li><a href="hotel.html#page1">서울신라호텔</a></li>
+                                <li><a href="hotel.html#page2">제주신라호텔</a></li>
+                                <li><a href="hotel.html#page3">신라스테이</a></li>
+                            </ul>
+                        </li>
+                        <li class="item3">
+                            <a href="" class="dp1">신라리워즈</a>
+                            <ul class="sub">
+                                <li><a href="rewards.html#page1">회원 특전</a></li>
+                                <li><a href="rewards.html#page2">포인트 안내</a></li>
+                                <li><a href="rewards.html#page3">회원전용 프로모션</a></li>
+                            </ul>
+                        </li>
+                        <li class="item4">
+                            <a href="" class="dp1">Business Area</a>
+                            <ul class="sub">
+                                <li><a href="area.html#page1">TR부문</a></li>
+                                <li><a href="area.html#page2">호텔부문</a></li>
+                                <li><a href="area.html#page3">레저부문</a></li>
+                            </ul>
+                        </li>
+                        <li class="item5">
+                            <a href="" class="dp1">Investor Relations</a>
+                            <ul class="sub">
+                                <li><a href="ir.html#page1">공시정보</a></li>
+                                <li><a href="ir.html#page2">지배구조</a></li>
+                                <li><a href="ir.html#page3">IR자료실</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <div class="content" > 
+            <figure class="vs">
+                <img src="./img/main.jpg" alt="비주얼">
+            </figure>
+            <div class="bread">
+                <div class="bread_fr">
+                    <a href="index.html" class="home">HOME</a> &gt;
+                    <span class="sel">고객문의</span>
+                </div>
+            </div>
+            <section class="page">
+                <div class="page_wrap">
+                    <h2 class="page_title">자주하는 질문</h2>
+                    <ul class="faq_lst">
+                        <li>
+                            <span class="faq_cat">기타</span>
+                            <span class="faq_con"><a href="">Q.객실 업그레이드 쿠폰은 어떻게 사용하나요?</a></span>
+                        </li>
+                        <li>
+                            <span class="faq_cat">기타</span>
+                            <span class="faq_con"><a href="">Q.객실 패키지 이용 금액은 포인트 적립 기준이 어떻게 되나요?</a></span>
+                        </li>
+                        <li>
+                            <span class="faq_cat">기타</span>
+                            <span class="faq_con"><a href="">Q.등급 점수는 어디서 확인이 가능한가요?</a></span>
+                        </li>
+                        <li>
+                            <span class="faq_cat">기타</span>
+                            <span class="faq_con"><a href="">Q.로그인이 안됩니다.</a></span>
+                        </li>
+                        <li>
+                            <span class="faq_cat">기타</span>
+                            <span class="faq_con"><a href="">Q.멤버십 카드(모바일 카드)는 어디서 확인이 가능한가요?</a></span>
+                        </li>
+                        <li>
+                            <span class="faq_cat">기타</span>
+                            <span class="faq_con"><a href="">Q.모바일 쿠폰은 어떻게 확인/사용하나요?</a></span>
+                        </li>
+                        <li>
+                            <span class="faq_cat">기타</span>
+                            <span class="faq_con"><a href="">Q.신라리워즈 멤버십센터의 운영시간은 어떻게 되나요?</a></span>
+                        </li>
+                        <li>
+                            <span class="faq_cat">기타</span>
+                            <span class="faq_con"><a href="">Q.신라리워즈 포인트 적립은 어떻게 하나요?</a></span>
+                        </li>
+                        <li>
+                            <span class="faq_cat">기타</span>
+                            <span class="faq_con"><a href="">Q.회원 정보 수정은 어떻게 하나요?</a></span>
+                        </li>
+                        <li>
+                            <span class="faq_cat">신라리워즈가입</span>
+                            <span class="faq_con"><a href="">Q.신라리워즈 가입은 어떻게 하나요?</a></span>
+                        </li>
+                        <li>
+                            <span class="faq_cat">신라리워즈가입</span>
+                            <span class="faq_con"><a href="">Q.온라인 계정 활성화 등록과 온라인 가입의 차이점은 무엇인가요?</a></span>
+                        </li>
+                        <li>
+                            <span class="faq_cat">포인트 적립/사용</span>
+                            <span class="faq_con"><a href="">Q.포인트 적립률은 어떻게 되나요?</a></span>
+                        </li>
+                        <li>
+                            <span class="faq_cat">포인트 적립/사용</span>
+                            <span class="faq_con"><a href="">Q.포인트가 적립되지 않는 객실 상품은 무엇인가요?</a></span>
+                        </li>
+                        <li>
+                            <span class="faq_cat">포인트 조정</span>
+                            <span class="faq_con"><a href="">Q.[포인트 조정 신청] 포인트 적립이 누락되었습니다.</a></span>
+                        </li>
+                    </ul>    
+                </div>
+            </section>
+        </div>
+                    
+        <footer class="ft">
+            <div class="ft_wrap">
+                <div class="ft_logo"><img src="./img/logo_hotel.gif" alt="logo"></div>
+                <div class="mid_box">
+                    <nav class="fnb">
+                        <a href="">개인정보 처리 방침</a>
+                        <a href="">이용약관</a>
+                        <a href="">이메일무단수집거부</a>
+                    </nav>
+                    <p class="addr">
+                        (주)호텔신라 | 서울특별시 중구 동호로 249 (우:04605) | 대표이사 이부진| 사업자등록번호203-81-43363 | 통신판매업신고번호 중구00272호<br>
+                        호스팅서비스제공자 삼성SDS(주) | 서울객실예약 shilla.reserve@samsung.com | 제주객실예약 jejushilla@samsung.com<br>
+                    </p>
+                    <p class="copyright">COPYRIGHT(C) HOTEL SHILLA CO., LTD. All Right Reserved.</p>
+                </div>
+                <div class="sel_box">
+                    <select name="sel" id="sel" class="sel" onchange="sel_link(this)">
+                        <option value="">패밀리 사이트</option>
+                        <option value="https://www.shilladfs.com/estore/kr">신라면세점</option>
+                        <option value="http://www.theshillashop.com">신라숍</option>
+                    </select>
+                </div>
+                <script>
+                function sel_link(sel){
+                    location.href = sel.value;
+                }
+                </script>
+            </div>
+        </footer>
+    </div>
+    
+    </body>
+    </html>
