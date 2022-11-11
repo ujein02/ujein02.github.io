@@ -1,0 +1,16 @@
+코오롱 스포츠
+sport - history
+outdoor - shoes, camping, wear
+issue - magazine, stores
+고객센터 - faq, 공지사항, 1:1문의
+
+
+서브 메뉴
+> 메인 메뉴 선택시 
+해당하는 서브 메뉴만 보이게 다시 설정
+
+1. menu.html 
+메뉴 outdoor 에서 상품들 정렬할때 css, 글자, img만 변경해서 사용 
+
+2. head, footer
+index.html이 아닌 shoes.html에서 사용한 head, footer을 사용하면 됨 

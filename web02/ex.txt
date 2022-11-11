@@ -1,0 +1,40 @@
+<!-- 로그인 -->
+                <nav class="tnb">
+                    <a href="">로그인</a>
+                    <a href="">회원가입</a>
+                    <a href="">고객센터</a>
+                </nav>
+                <!-- 메뉴바 -->
+                <nav class="gnb">
+                    <ul>
+                        <li class="item1">
+                            <a href="" class="dp1">KOLON SPORT</a>
+                            <ul class="sub">
+                                <li><a href="">HISTORY</a></li>
+                            </ul>
+                        </li>
+                        <li class="item2">
+                            <a href="" class="dp1">OUTDOOR</a>
+                            <ul class="sub">
+                                <li><a href="">#Performance_Shoes</a></li>
+                                <li><a href="">#Camping_Gear</a></li>
+                                <li><a href="">#Expert_Wear</a></li>
+                            </ul>
+                        </li>
+                        <li class="item3">
+                            <a href="" class="dp1">ISSUE</a>
+                            <ul class="sub">
+                                <li><a href="">MAGAZINE</a></li>
+                                <li><a href="">STORES</a></li>
+                            </ul>
+                        </li>
+                        <li class="item4">
+                            <a href="" class="dp1">고객센터</a>
+                            <ul class="sub">
+                                <li><a href="">FAQ</a></li>
+                                <li><a href="">공지사항</a></li>
+                                <li><a href="">1:1문의</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
