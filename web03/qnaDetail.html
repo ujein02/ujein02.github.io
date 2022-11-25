@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>메인 페이지</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./font.css">
+<style>
+.table { min-width:960px; }
+body, html, web guide { font-family: 'GmarketSansMedium', sans-serif; }
+#logo { display:block; width:92px; height:45px; background-image:url("./data/logo.png"); background-color:white;
+background-size:90% auto; background-repeat:no-repeat; background-position:center center; }
+#nav-group { border-bottom:3px solid #ddd; }
+#gnb .navbar-link::after { content:""; display:none; }
+#sidebar .navbar { display:block; width:100%; background-color:transparent; }
+#sidebar .navbar-item { float:none; clear:both; display:block; width:100%; }
+#frm1 .inline { width:70%; float:left; margin-right:2%; }
+#frm1.search_form .inline { display:inline-block; width:auto; } 
+.navbar-item.has-dropdown.is-hoverable { min-width:110px; position:static; }
+.navbar-item.has-dropdown.is-hoverable a { font-weight:800; padding-left:20px;}
+.navbar-item.has-dropdown.is-hoverable.single { position:relative;  }
+#nav .navbar-dropdown.cate { min-width:940px; width:940px; position:absolute; left:50px; }
+#nav .navbar-dropdown.single { min-width:150px; width:150px; left:auto; top:68px; }
+#nav .navbar-dropdown.cate a { display:inline-block; padding:8px; margin-right:20px;  
+width:120px; text-overflow:ellipsis; overflow:hidden; white-space:nowrap; 
+font-weight:500; }
+#nav .navbar-dropdown.single a { display:inline-block; width:150px; text-overflow:ellipsis; overflow:hidden; white-space:nowrap; 
+font-weight:500; }
+p.title { font-size:1.4rem; }
+p.subtitle { font-size:1.1rem; }
+p.comment2 { max-width:400px; text-overflow:ellipsis; overflow:hidden; white-space:nowrap; max-height:40px; }
+.item_com {   overflow: hidden;  text-overflow: ellipsis;  display: -webkit-box;
+  -webkit-line-clamp: 3;  -webkit-box-orient: vertical; font-size:0.9rem; }
+.breadcrumb ul li:last-child { padding-right:1.5rem; }
+.control, .buttons{float:right; margin-right:100px;}
+#con1{margin-top:60px;}
+.vs{margin-top:50px;}
+</style>
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+     <link rel="stylesheet" href="/pro03/resource/datatables.min.css">
+	<script src="/pro03/resource/datatables.min.js"></script>
+	<script>
+	$(document).ready( function () {
+	    $('#tb1').DataTable();
+	} );
+	</script>
+  </head>
+  <body>
+	<div id="nav-group">
+		<div class="container"> 
+			<nav class="navbar is-light" role="navigation" aria-label="main navigation">
+				<div class="navbar-brand">
+						<a class="navbar-item" id="logo" href="index.html">
+						</a>
+					
+						<a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+						  <span aria-hidden="true"></span>
+						  <span aria-hidden="true"></span>
+						  <span aria-hidden="true"></span>
+						</a>
+					  </div>
+				<div id="navbarBasicExample" class="navbar-menu">	
+					  <div class="navbar-start" id="gnb">
+								<div class="navbar-item has-dropdown is-hoverable">
+									<a href="tour.html" class="navbar-link">
+										  관광
+									</a>
+									<div class="navbar-dropdown cate" id="cate01"><a href="tour_sub1.html">호미곶 일출</a><a href="tour_sub2.html">내연산 12폭포 비경</a><a href="tour_sub3.html">영일대&amp;포스코 야경</a></div>
+								</div>
+								<div class="navbar-item has-dropdown is-hoverable">
+									<a href="festa.html" class="navbar-link cate">
+										  행사
+									</a> 
+									   <div class="navbar-dropdown cate" id="cate02"><a href="festa_sub1.html">스틸아트페스티벌 2020</a><a href="festa_sub2.html">칠포 재즈페스티벌 2020</a></div>
+								</div>
+								<div class="navbar-item has-dropdown is-hoverable">
+									<a href="food.html" class="navbar-link cate">
+										  음식
+									</a>
+									   <div class="navbar-dropdown cate" id="cate03"><a href="food_sub1.html">구룡포 과메기</a><a href="food_sub2.html">포항 물회</a></div>
+								</div>
+								<div class="navbar-item has-dropdown is-hoverable">
+									<a href="recommend.html" class="navbar-link cate">
+										  추천여행지
+									</a>
+									<div class="navbar-dropdown cate" id="cate04"><a href="recommend_sub1.html">포스코 역사관</a><a href="recommend_sub2.html">경상북도수목원</a></div>
+								</div>
+								<div class="navbar-item has-dropdown is-hoverable">
+									<a href="etc.html" class="navbar-link cate">
+										  기타
+									</a>
+									<div class="navbar-dropdown cate" id="cate05"><a href="etc_sub1.html">[숙박] 라한호텔(구 베스트웨스턴 포항)</a><a href="etc_sub2.html">[숙박] 펜션 다모디</a></div>
+								</div>	
+								<div class="navbar-item has-dropdown is-hoverable">
+									<a href="community.html" class="navbar-link cate">
+										  커뮤니티
+									</a>
+									<div class="navbar-dropdown cate" id=""><a href="notice.html">공지사항</a><a href="qna.html">묻고답하기</a></div>
+								</div>	
+							</div>
+							
+							<div class="navbar-end" id="tnb">
+							  <div class="navbar-item">
+								  
+							
+								<div class="buttons">
+									<a href="join.html" class="button is-info">
+									  <strong>Sign up</strong>
+									</a>
+									<a href="login.html" class="button is-info">
+									  Log in
+									</a>
+								</div>
+							
+						  </div>
+						</div>
+				</div>  
+			</nav>
+			<script>
+				$(document).ready(function(){
+					$.ajax({
+						url:"/pro03/MemuLoadCtrl.do",
+						type:"POST",
+						enctype:"UTF-8",
+						datatype:"json",
+						processData:false,
+						contentType:false, 
+						cache:false,
+						success:function(data){
+							$(".navbar-dropdown.cate").empty();
+							var trans = $.parseJSON(data);
+							$.each(trans, function(key, value){
+								if(key=="data"){
+									for(var i=0;i<value.length;i++){
+										if(value[i].cate=="A"){
+											$("#cate01").append("<a href='/pro03/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
+										} else if(value[i].cate=="B"){
+											$("#cate02").append("<a href='/pro03/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
+										} else if(value[i].cate=="C"){
+											$("#cate03").append("<a href='/pro03/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
+										} else if(value[i].cate=="D"){
+											$("#cate04").append("<a href='/pro03/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
+										} else if(value[i].cate=="E"){
+											$("#cate05").append("<a href='/pro03/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
+										} else if(value[i].cate=="F"){
+											$("#cate06").append("<a href='/pro03/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
+										} else if(value[i].cate=="G"){
+											$("#cate07").append("<a href='/pro03/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
+										}
+									}
+								}
+							});
+							
+						}
+					});
+				});
+				</script>
+		</div>
+	</div>
+  <section class="section">
+    <div class="container">
+		<h2 class="title">질문 및 답변 상세 내용</h2>
+		<table class="table">
+			<tbody>
+				<tr>
+					<th>구분</th>
+					<td>
+					
+						<span>질문</span>
+						
+					
+					</td>
+				</tr>
+				<tr>
+					<th>공개여부</th>
+					<td>
+						
+					
+						<span>공개</span>
+					
+					</td>
+				</tr>
+				<tr>
+					<th>번호</th>
+					<td>1</td>
+				</tr>
+				<tr>
+					<th>제목</th>
+					<td>문의합니다</td>
+				</tr>
+				<tr>
+					<th>내용</th>
+					<td>테스트11111</td>
+				</tr>
+				<tr>
+					<th>작성자</th>
+					<td>test</td>
+				</tr>
+				<tr>
+					<th>작성일시</th>
+					<td>2022-11-23 10:22:17.0</td>
+				</tr>
+				<tr>
+					<th>읽은 횟수</th>
+					<td>7</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="buttons">
+			<a href="qna.html" class="button is-info">목록으로</a>
+		</div>
+	</div>	
+	</section>
+  
+<footer class="footer">
+  <div class="content has-text-centered">
+    <p>
+     	경상북도 포항시 남구 시청로 1 (대잠동, 포항시청) | 대표전화 : 054-270-8282 | 관광안내전화 : 1330 <br>
+     	 ⓒ POHANG CITY. All Rights Reserved.
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

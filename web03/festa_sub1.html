@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>장소 상세보기</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./font.css">
+<style>
+.table { min-width:960px; }
+body, html, web guide { font-family: 'GmarketSansMedium', sans-serif; }
+#logo { display:block; width:92px; height:45px; background-image:url("./data/logo.png"); background-color:white;
+background-size:90% auto; background-repeat:no-repeat; background-position:center center; }
+#nav-group { border-bottom:3px solid #ddd; }
+#gnb .navbar-link::after { content:""; display:none; }
+#sidebar .navbar { display:block; width:100%; background-color:transparent; }
+#sidebar .navbar-item { float:none; clear:both; display:block; width:100%; }
+#frm1 .inline { width:70%; float:left; margin-right:2%; }
+#frm1.search_form .inline { display:inline-block; width:auto; } 
+.navbar-item.has-dropdown.is-hoverable { min-width:110px; position:static; }
+.navbar-item.has-dropdown.is-hoverable a { font-weight:800; padding-left:20px;}
+.navbar-item.has-dropdown.is-hoverable.single { position:relative;  }
+#nav .navbar-dropdown.cate { min-width:940px; width:940px; position:absolute; left:50px; }
+#nav .navbar-dropdown.single { min-width:150px; width:150px; left:auto; top:68px; }
+#nav .navbar-dropdown.cate a { display:inline-block; padding:8px; margin-right:20px;  
+width:120px; text-overflow:ellipsis; overflow:hidden; white-space:nowrap; 
+font-weight:500; }
+#nav .navbar-dropdown.single a { display:inline-block; width:150px; text-overflow:ellipsis; overflow:hidden; white-space:nowrap; 
+font-weight:500; }
+p.title { font-size:1.4rem; }
+p.subtitle { font-size:1.1rem; }
+p.comment2 { max-width:400px; text-overflow:ellipsis; overflow:hidden; white-space:nowrap; max-height:40px; }
+.item_com {   overflow: hidden;  text-overflow: ellipsis;  display: -webkit-box;
+  -webkit-line-clamp: 3;  -webkit-box-orient: vertical; font-size:0.9rem; }
+.breadcrumb ul li:last-child { padding-right:1.5rem; }
+.control, .buttons{float:right; margin-right:100px;}
+#con1{margin-top:60px;}
+.vs{margin-top:50px;}
+</style>
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://s1.daumcdn.net/svc/attach/U03/cssjs/mapapidoc/1421136453605/service.min.css">
+  	<style>
+	body, #logo { background:white; }
+	#logo { display:block; width:92px; height:45px; background-image:url("./data/logo.png"); background-color:transparent;
+background-size:90% auto; background-repeat:no-repeat; background-position:center center; }
+	body, html, .table { font-family: 'GmarketSansMedium', sans-serif; }
+	</style>
+  	<script type="text/javascript" src="http://dmaps.daum.net/map_js_init/v3.js"></script>
+	<script type="text/javascript" src="http://s1.daumcdn.net/svc/original/U03/cssjs/jquery/jquery-1.11.0.js"></script>	
+	<script type="text/javascript" src="http://s1.daumcdn.net/svc/original/U0301/cssjs/JSON-js/fc535e9cc8/json2.min.js"></script>
+  </head>
+  <body class="web guide" data-page_section="web" data-page_type="guide" data-title="Daum 지도 Web API 가이드">
+  
+
+
+ 
+	<div id="nav-group">
+		<div class="container"> 
+			<nav class="navbar is-light" role="navigation" aria-label="main navigation">
+				<div class="navbar-brand">
+						<a class="navbar-item" id="logo" href="index.html">
+						</a>
+					
+						<a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+						  <span aria-hidden="true"></span>
+						  <span aria-hidden="true"></span>
+						  <span aria-hidden="true"></span>
+						</a>
+					  </div>
+				<div id="navbarBasicExample" class="navbar-menu">	
+					  <div class="navbar-start" id="gnb">
+								<div class="navbar-item has-dropdown is-hoverable">
+									<a href="tour.html" class="navbar-link">
+										  관광
+									</a>
+									<div class="navbar-dropdown cate" id="cate01"><a href="tour_sub1.html">호미곶 일출</a><a href="tour_sub2.html">내연산 12폭포 비경</a><a href="tour_sub3.html">영일대&amp;포스코 야경</a></div>
+								</div>
+								<div class="navbar-item has-dropdown is-hoverable">
+									<a href="festa.html" class="navbar-link cate">
+										  행사
+									</a> 
+									   <div class="navbar-dropdown cate" id="cate02"><a href="festa_sub1.html">스틸아트페스티벌 2020</a><a href="festa_sub2.html">칠포 재즈페스티벌 2020</a></div>
+								</div>
+								<div class="navbar-item has-dropdown is-hoverable">
+									<a href="food.html" class="navbar-link cate">
+										  음식
+									</a>
+									   <div class="navbar-dropdown cate" id="cate03"><a href="food_sub1.html">구룡포 과메기</a><a href="food_sub2.html">포항 물회</a></div>
+								</div>
+								<div class="navbar-item has-dropdown is-hoverable">
+									<a href="recommend.html" class="navbar-link cate">
+										  추천여행지
+									</a>
+									<div class="navbar-dropdown cate" id="cate04"><a href="recommend_sub1.html">포스코 역사관</a><a href="recommend_sub2.html">경상북도수목원</a></div>
+								</div>
+								<div class="navbar-item has-dropdown is-hoverable">
+									<a href="etc.html" class="navbar-link cate">
+										  기타
+									</a>
+									<div class="navbar-dropdown cate" id="cate05"><a href="etc_sub1.html">[숙박] 라한호텔(구 베스트웨스턴 포항)</a><a href="etc_sub2.html">[숙박] 펜션 다모디</a></div>
+								</div>	
+								<div class="navbar-item has-dropdown is-hoverable">
+									<a href="community.html" class="navbar-link cate">
+										  커뮤니티
+									</a>
+									<div class="navbar-dropdown cate" id=""><a href="notice.html">공지사항</a><a href="qna.html">묻고답하기</a></div>
+								</div>	
+							</div>
+							
+							<div class="navbar-end" id="tnb">
+							  <div class="navbar-item">
+								  
+							
+								<div class="buttons">
+									<a href="join.html" class="button is-info">
+									  <strong>Sign up</strong>
+									</a>
+									<a href="login.html" class="button is-info">
+									  Log in
+									</a>
+								</div>
+							
+						  </div>
+						</div>
+				</div>  
+			</nav>
+			<script>
+				$(document).ready(function(){
+					$.ajax({
+						url:"/pro03/MemuLoadCtrl.do",
+						type:"POST",
+						enctype:"UTF-8",
+						datatype:"json",
+						processData:false,
+						contentType:false, 
+						cache:false,
+						success:function(data){
+							$(".navbar-dropdown.cate").empty();
+							var trans = $.parseJSON(data);
+							$.each(trans, function(key, value){
+								if(key=="data"){
+									for(var i=0;i<value.length;i++){
+										if(value[i].cate=="A"){
+											$("#cate01").append("<a href='/pro03/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
+										} else if(value[i].cate=="B"){
+											$("#cate02").append("<a href='/pro03/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
+										} else if(value[i].cate=="C"){
+											$("#cate03").append("<a href='/pro03/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
+										} else if(value[i].cate=="D"){
+											$("#cate04").append("<a href='/pro03/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
+										} else if(value[i].cate=="E"){
+											$("#cate05").append("<a href='/pro03/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
+										} else if(value[i].cate=="F"){
+											$("#cate06").append("<a href='/pro03/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
+										} else if(value[i].cate=="G"){
+											$("#cate07").append("<a href='/pro03/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
+										}
+									}
+								}
+							});
+							
+						}
+					});
+				});
+				</script>
+		</div>
+	</div>
+	<nav class="breadcrumb" aria-label="breadcrumbs" style="border-bottom:2px solid #ddd; padding-bottom:8px; min-height:48px; line-height:48px;">
+	  <ul style="float:right;">
+	    <li><a href="index.html">Home</a></li>
+	    <li><a href="all.html">전체 장소</a></li>
+	    <li><a href="festa.html">
+ 			 			
+			
+			<span>행사</span>
+					
+			
+			
+	    </a></li>
+	    <li class="is-active"><a href="#" aria-current="page">스틸아트페스티벌 2020</a></li>
+	  </ul>
+	</nav>
+  <section class="section">
+    <div class="container">
+      <h1 class="title">장소 상세보기</h1>
+      	<div id="con">
+      		<table class="table">
+      			
+      			<tr>
+				
+				<td>
+					<img src="./data/temp_1591685343073100.jpg" class="lazy" onerror="this.style.display='none'" alt="배너" />
+					
+	      		</td>
+					
+		    	</tr>
+		    	
+				
+		  </tbody>
+		</table>
+      	</div>
+		<table class="table">
+		   <tbody>
+		    <tr>
+		      <th style="min-width:180px;">번호</th>
+		      <td>5</td>
+		    </tr>
+		    <tr>
+		      <th>분류</th>
+		      <td>
+   				 
+				
+				
+				<span>행사</span>
+				
+				
+				
+				
+		      </td>
+		    </tr>
+		    <tr>
+		      <th>장소 번호</th>
+		      <td><p>B0005</p>
+		      	<input type="hidden" name="tourno" id="tourno" value="B0005" />
+		      </td>
+		    </tr>
+		    <tr> 
+		      <th>장소명</th>
+		      <td>
+				스틸아트페스티벌 2020
+		      </td>	
+		    </tr>
+		    <tr>
+		      <th>장소 위치 설명</th>
+		      <td><p>- 주소 : 경상북도 포항시 북구 선착로 78 (동빈1가) 영일대해수욕장, 구.포항수협냉동창고, 송도해수욕장, 문화예술창작지구 꿈틀로</p></td>
+		    </tr>
+		    <tr>
+		      <th>장소 상세 설명</th>
+		      <td><p>사람과 철의 만남, 도시와 새로운 예술과의 만남 포항스틸아트페스티벌 포항스틸아트페스티벌은 연오랑세오녀 일월신화에서부터 파이넥스 공법으로 세계철강사를 다시 쓰고 있는 포스코의 성공신화에 이르기까지, 포항역사의 시공간에 걸친 철의 문화적 코드를 예술 및 문화활동과 융합한 Steel Art 축제입니다. Steel의 문화화를 통한 지역문화 콘텐츠 구축과 창조도시의 가치를 발굴하기 위해 매년 열립니다. 포항만의 문화와 철학을 담은 세계유일의 스틸축제, 시민들이 자유롭게 스틸작품을 접하고 즐기며 소유하는 생활 속의 축제가 바로 포항스틸아트페스티벌의 차별 지점이자 자랑입니다. 따라서, 이 축제는 사람을 불러 모으는 창조적 Steel Convention City의 기반을 조성하며 Steel을 매개로 지역문화와 예술, 과학과 첨단산업이 생태계를 이루는 Network를 구축하는데 방점을 찍고 있습니다.</p></td>
+		    </tr>
+		    <tr>
+		    	<th>위치</th>
+		    	<td>
+		    		<input type="hidden" name="addr" id="addr" value="nullnull" />
+		    		<input type="hidden" name="place" id="place" value="스틸아트페스티벌 2020" />
+		    	</td>
+		    </tr>
+		  </tbody>
+		</table>
+		<div style="clear:both; margin-bottom:20px; padding-bottom:20px; ">
+			<div id="map" style="margin-left:120px;	margin-top:50px; width:800px;height:600px; background:white; "></div>
+			<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+			<!-- https://developers.kakao.com/ 회원가입 후 -> 내 애플리케이션 -> 애플리케이션 추가 -> 추가된 해당 앱을 클릭하면 발급받은  API키를 확인할 수 있음  -->	
+			<!-- https://apis.map.kakao.com/web/sample/addMapBoundsChangedEvent/	 --> 	
+			<script type="text/javascript" src="http://dapi.kakao.com/v2/maps/sdk.js?appkey=23268fd4e151ed47578ccfc959105a35&​libraries=services"></script>
+			<script>
+			var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+			    mapOption = { //128.433182, 34.8544227
+			        center: new kakao.maps.LatLng(36.0170, 129.33860), // 지도의 중심좌표
+			        level: 7 // 지도의 확대 레벨
+			    };  
+			
+			// 지도를 생성합니다    
+			var map = new kakao.maps.Map(mapContainer, mapOption); 
+			
+			// 주소-좌표 변환 객체를 생성합니다
+			var geocoder = new kakao.maps.services.Geocoder();
+			
+			// 주소로 좌표를 검색합니다
+			geocoder.addressSearch($("#addr").val(), function(result, status) {
+			
+			    // 정상적으로 검색이 완료됐으면 
+			     if (status === kakao.maps.services.Status.OK) {
+			
+			        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+			        // 결과값으로 받은 위치를 마커로 표시합니다
+			        var marker = new kakao.maps.Marker({
+			            map: map,
+			            position: coords
+			        });
+					
+			        // 인포윈도우로 장소에 대한 설명을 표시합니다
+			        var infowindow = new kakao.maps.InfoWindow({
+			            content: '<div style="width:150px;text-align:center;padding:6px 0;">'+$('#place').val()+'</div>'
+			        });
+			        infowindow.open(map, marker);
+			
+			        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+			        map.setCenter(coords);
+			    } 
+			});    
+			</script>
+		</div>
+		<div class="buttons">
+		  <a href="all.html" class="button is-info">전체 목록</a>
+		  <a href="festa.html" class="button is-info">카테고리 목록</a>
+		  
+		</div>
+    </div>
+  </section>
+<footer class="footer">
+  <div class="content has-text-centered">
+    <p>
+     	경상북도 포항시 남구 시청로 1 (대잠동, 포항시청) | 대표전화 : 054-270-8282 | 관광안내전화 : 1330 <br>
+     	 ⓒ POHANG CITY. All Rights Reserved.
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

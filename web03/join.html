@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>메인 페이지</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./font.css">
+<style>
+.table { min-width:960px; }
+body, html, web guide { font-family: 'GmarketSansMedium', sans-serif; }
+#logo { display:block; width:92px; height:45px; background-image:url("./data/logo.png"); background-color:white;
+background-size:90% auto; background-repeat:no-repeat; background-position:center center; }
+#nav-group { border-bottom:3px solid #ddd; }
+#gnb .navbar-link::after { content:""; display:none; }
+#sidebar .navbar { display:block; width:100%; background-color:transparent; }
+#sidebar .navbar-item { float:none; clear:both; display:block; width:100%; }
+#frm1 .inline { width:70%; float:left; margin-right:2%; }
+#frm1.search_form .inline { display:inline-block; width:auto; } 
+.navbar-item.has-dropdown.is-hoverable { min-width:110px; position:static; }
+.navbar-item.has-dropdown.is-hoverable a { font-weight:800; padding-left:20px;}
+.navbar-item.has-dropdown.is-hoverable.single { position:relative;  }
+#nav .navbar-dropdown.cate { min-width:940px; width:940px; position:absolute; left:50px; }
+#nav .navbar-dropdown.single { min-width:150px; width:150px; left:auto; top:68px; }
+#nav .navbar-dropdown.cate a { display:inline-block; padding:8px; margin-right:20px;  
+width:120px; text-overflow:ellipsis; overflow:hidden; white-space:nowrap; 
+font-weight:500; }
+#nav .navbar-dropdown.single a { display:inline-block; width:150px; text-overflow:ellipsis; overflow:hidden; white-space:nowrap; 
+font-weight:500; }
+p.title { font-size:1.4rem; }
+p.subtitle { font-size:1.1rem; }
+p.comment2 { max-width:400px; text-overflow:ellipsis; overflow:hidden; white-space:nowrap; max-height:40px; }
+.item_com {   overflow: hidden;  text-overflow: ellipsis;  display: -webkit-box;
+  -webkit-line-clamp: 3;  -webkit-box-orient: vertical; font-size:0.9rem; }
+.breadcrumb ul li:last-child { padding-right:1.5rem; }
+.control, .buttons{float:right; margin-right:100px;}
+#con1{margin-top:60px;}
+.vs{margin-top:50px;}
+</style>
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+<style>
+.content container{margin-top:20px}
+#id { width:780px; float:left; margin-right:30px; margin-left:6px; }
+.buttons{float:right;}
+</style>    
+  </head>
+<body>
+<div id="nav-group">
+	<div class="container"> 
+		<nav class="navbar is-light" role="navigation" aria-label="main navigation">
+			<div class="navbar-brand">
+					<a class="navbar-item" id="logo" href="index.html">
+					</a>
+				
+					<a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+						<span aria-hidden="true"></span>
+						<span aria-hidden="true"></span>
+						<span aria-hidden="true"></span>
+					</a>
+					</div>
+			<div id="navbarBasicExample" class="navbar-menu">	
+					<div class="navbar-start" id="gnb">
+							<div class="navbar-item has-dropdown is-hoverable">
+								<a href="tour.html" class="navbar-link">
+										관광
+								</a>
+								<div class="navbar-dropdown cate" id="cate01"><a href="tour_sub1.html">호미곶 일출</a><a href="tour_sub2.html">내연산 12폭포 비경</a><a href="tour_sub3.html">영일대&amp;포스코 야경</a></div>
+							</div>
+							<div class="navbar-item has-dropdown is-hoverable">
+								<a href="festa.html" class="navbar-link cate">
+										행사
+								</a> 
+									<div class="navbar-dropdown cate" id="cate02"><a href="festa_sub1.html">스틸아트페스티벌 2020</a><a href="festa_sub2.html">칠포 재즈페스티벌 2020</a></div>
+							</div>
+							<div class="navbar-item has-dropdown is-hoverable">
+								<a href="food.html" class="navbar-link cate">
+										음식
+								</a>
+									<div class="navbar-dropdown cate" id="cate03"><a href="food_sub1.html">구룡포 과메기</a><a href="food_sub2.html">포항 물회</a></div>
+							</div>
+							<div class="navbar-item has-dropdown is-hoverable">
+								<a href="recommend.html" class="navbar-link cate">
+										추천여행지
+								</a>
+								<div class="navbar-dropdown cate" id="cate04"><a href="recommend_sub1.html">포스코 역사관</a><a href="recommend_sub2.html">경상북도수목원</a></div>
+							</div>
+							<div class="navbar-item has-dropdown is-hoverable">
+								<a href="etc.html" class="navbar-link cate">
+										기타
+								</a>
+								<div class="navbar-dropdown cate" id="cate05"><a href="etc_sub1.html">[숙박] 라한호텔(구 베스트웨스턴 포항)</a><a href="etc_sub2.html">[숙박] 펜션 다모디</a></div>
+							</div>	
+							<div class="navbar-item has-dropdown is-hoverable">
+								<a href="community.html" class="navbar-link cate">
+										커뮤니티
+								</a>
+								<div class="navbar-dropdown cate" id=""><a href="notice.html">공지사항</a><a href="qna.html">묻고답하기</a></div>
+							</div>	
+						</div>
+						
+						<div class="navbar-end" id="tnb">
+							<div class="navbar-item">
+								
+						
+							<div class="buttons">
+								<a href="join.html" class="button is-info">
+									<strong>Sign up</strong>
+								</a>
+								<a href="login.html" class="button is-info">
+									Log in
+								</a>
+							</div>
+						
+						</div>
+					</div>
+			</div>  
+		</nav>
+		<script>
+			$(document).ready(function(){
+				$.ajax({
+					url:"/pro03/MemuLoadCtrl.do",
+					type:"POST",
+					enctype:"UTF-8",
+					datatype:"json",
+					processData:false,
+					contentType:false, 
+					cache:false,
+					success:function(data){
+						$(".navbar-dropdown.cate").empty();
+						var trans = $.parseJSON(data);
+						$.each(trans, function(key, value){
+							if(key=="data"){
+								for(var i=0;i<value.length;i++){
+									if(value[i].cate=="A"){
+										$("#cate01").append("<a href='/pro03/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
+									} else if(value[i].cate=="B"){
+										$("#cate02").append("<a href='/pro03/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
+									} else if(value[i].cate=="C"){
+										$("#cate03").append("<a href='/pro03/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
+									} else if(value[i].cate=="D"){
+										$("#cate04").append("<a href='/pro03/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
+									} else if(value[i].cate=="E"){
+										$("#cate05").append("<a href='/pro03/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
+									} else if(value[i].cate=="F"){
+										$("#cate06").append("<a href='/pro03/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
+									} else if(value[i].cate=="G"){
+										$("#cate07").append("<a href='/pro03/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
+									}
+								}
+							}
+						});
+						
+					}
+				});
+			});
+			</script>
+	</div>
+</div>
+<div class="content container" style="margin-top:100px;">
+	<h2 class="title">회원가입</h2>
+	<form name="frm1" action="" method="post"  class="frm1" onsubmit="return joinAlert(this)">
+		<table class="table">
+			<tbody>
+				<tr>
+					<th>아이디</th>
+					<td>
+						<div class="form-row">
+							<input type="text" name="id" id="id" placeholder="아이디 입력" class="input" autofocus required />
+							<input type="button" class="button is-info" value="아이디 중복 확인" onclick="idCheck()">
+							<input type="hidden" name="idck" id="idck" value="no">
+						</div>
+						<div>
+							
+							<p id="msg" style="padding-left:0.5rem">아직 아이디 중복 체크를 하지 않으셨습니다.</p>
+							
+							
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<th>비밀번호</th>
+					<td><input type="password" name="pw" id="pw" placeholder="비밀번호 입력" class="input" required /></td>
+				</tr>
+				<tr>
+					<th>비밀번호 확인</th>
+					<td><input type="password" name="pw2" id="pw2" placeholder="비밀번호  확인 입력" class="input" required /></td>
+				</tr>
+				<tr>
+					<th>회원이름</th>
+					<td><input type="text" name="name" id="name" placeholder="이름 입력" class="input" required /></td>
+				</tr>
+				<tr>
+					<th>이메일</th>
+					<td><input type="email" name="email" id="email" placeholder="이메일 입력" class="input" required></td>
+				</tr>
+				<tr>
+					<th>생년월일</th>
+					<td><input type="date" name="birth" id="birth" placeholder="생년월일 입력" class="input" required></td>
+				</tr>
+				<tr>
+					<th>연락처</th>
+					<td><input type="tel" name="tel" id="tel" maxlength="11" placeholder="전화번호 숫자만 입력 00000000000" class="input" required></td>
+				</tr>
+				<tr>
+					<th>주소</th>
+					<td><input type="text" name="address1" id="address1" placeholder="기본 주소 입력" class="input" required /><br>
+					<input type="text" name="address2" id="address2" placeholder="상세 주소 입력" class="input" required /><br>
+					<input type="text" name="postcode" id="postcode" style="width:160px;float:left;margin-right:20px;" placeholder="우편번호" class="input">
+					<button id="post_btn" onclick="findAddr()" class="button is-info">우편번호 검색</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="buttons">
+			<input type="submit" name="submit-btn" class="button is-info" value="회원가입">
+			<input type="reset" name="reset-btn" class="button is-info" value="취소">
+			
+		</div>
+	</form>	
+	<script>
+	$(document).ready(function(){
+		$("#id").keyup(function(){
+			$("#idck").val("no");
+			if($(this).val()!=""){
+				$("#msg").html("<strong>아이디 입력중입니다.</strong>");
+			} else {
+				$("#msg").html("아직 아이디 중복 체크를 하지 않으셨습니다.");
+			}
+		});
+	});
+	</script>
+	<script>
+	function idCheck(){
+		if($("#id").val()==""){
+			alert("아이디를 입력하지 않으셨습니다.");
+			$("#id").focus();
+			return;
+		} 
+		var params = {	id : $("#id").val()	} //전송되어질 데이터를 객체로 묶음
+		$.ajax({
+			url:"",	//아이디가 전송되어질 곳
+			type:"post",		//전송방식
+			dataType:"json",	//데이터 반환 방식
+			data:params,		//전송방식이 post인 경우 객체로 묶어서 전송
+			success:function(result){
+				console.log(result.result);
+				var idChk = result.result;	//true 또는 false를 받음
+				if(idChk==false){	//사용할 수 없는 아이디
+					$("#idck").val("no");
+					$("#msg").html("<strong style='color:red'>기존에 사용되고 있는 아이디 입니다. 다시 입력하시기 바랍니다.</strong>");
+					$("#id").focus();
+				} else if(idChk==true){	//사용 가능한 아이디
+					$("#idck").val("yes");
+					$("#msg").html("<strong style='color:blue'>사용가능한 아이디 입니다.</strong>");
+				} else if(idck==""){
+					$("#msg").html("<strong>아이디가 확인되지 않았습니다. 다시 시도해주시기 바랍니다.</strong>");
+				}
+			}
+		});
+	}
+	function joinCheck(f){
+		if(f.pw.value!=f.pw2.value){
+			alert("비밀번호와 비밀번호 확인이 서로 다릅니다.");
+			f.pw.focus();
+			return false;
+		}
+		if(f.idck.value!="yes"){
+			alert("아이디 중복 체크를 하지 않으셨습니다.");
+			return false;
+		}
+	}
+	</script>
+	<script>
+	function findAddr() {
+		new daum.Postcode({
+			oncomplete: function(data) {
+				console.log(data);
+				var roadAddr = data.roadAddress;
+				var jibunAddr = data.jibunAddress;
+				document.getElementById("postcode").value = data.zonecode;
+				if(roadAddr !== '') {
+					document.getElementById("address1").value = roadAddr;				
+				} else if(jibunAddr !== ''){
+					document.getElementById("address1").value = jibunAddr;
+				}
+				document.getElementById("address2").focus();
+			}
+		}).open();
+	}
+	</script>
+	<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+</div>
+
+
+<footer class="footer">
+  <div class="content has-text-centered">
+    <p>
+     	경상북도 포항시 남구 시청로 1 (대잠동, 포항시청) | 대표전화 : 054-270-8282 | 관광안내전화 : 1330 <br>
+     	 ⓒ POHANG CITY. All Rights Reserved.
+    </p>
+  </div>
+</footer>
+</body>
+</html>
