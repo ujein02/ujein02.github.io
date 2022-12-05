@@ -257,7 +257,7 @@ background-size:90% auto; background-repeat:no-repeat; background-position:cente
 			<script>
 			var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 			    mapOption = { //128.433182, 34.8544227
-			        center: new kakao.maps.LatLng(36.0170, 129.33860), // 지도의 중심좌표
+			        center: new kakao.maps.LatLng( 36.0767, 129.5676), // 지도의 중심좌표 https://apis.map.kakao.com/web/sample/addMapClickEvent/
 			        level: 7 // 지도의 확대 레벨
 			    };  
 			
@@ -268,7 +268,7 @@ background-size:90% auto; background-repeat:no-repeat; background-position:cente
 			var geocoder = new kakao.maps.services.Geocoder();
 			
 			// 주소로 좌표를 검색합니다
-			geocoder.addressSearch($("#addr").val(), function(result, status) {
+			geocoder.addressSearch('경상북도 포항시 남구 호미곶면 해맞이로150번길 20', function(result, status) {
 			
 			    // 정상적으로 검색이 완료됐으면 
 			     if (status === kakao.maps.services.Status.OK) {
