@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>공지사항</title>
+    <title>공지사항 글 등록</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./font.css">
@@ -39,8 +39,8 @@ p.comment2 { max-width:400px; text-overflow:ellipsis; overflow:hidden; white-spa
 .vs{margin-top:50px;}
 </style>
 <script src="https://code.jquery.com/jquery-latest.js"></script>
-     <link rel="stylesheet" href="./resource/datatables.min.css">
-	<script src="./resource/datatables.min.js"></script>
+     <link rel="stylesheet" href="/pro03/resource/datatables.min.css">
+	<script src="/pro03/resource/datatables.min.js"></script>
 	<script>
 	$(document).ready( function () {
 	    $('#tb1').DataTable();
@@ -162,51 +162,30 @@ p.comment2 { max-width:400px; text-overflow:ellipsis; overflow:hidden; white-spa
 				</script>
 		</div>
 	</div>
-  <section class="section">
-    <div class="container">
-      <h1 class="title">공지사항 목록</h1>
-		<table class="table">
-		  <thead>
-		    <tr>
-		      <th><abbr title="No">No</abbr></th>
-		      <th><abbr title="Title">Title</abbr></th>
-		      <th><abbr title="RegDate">RegDate</abbr></th>
-		    </tr>
-		  </thead>
-		   <tbody>
-		   
-		    <tr>
-		      <td>1</td>
-		      <td><a href="noticeDetail.html">퐝퐝퐝 포항 스탬프 투어(k-드라마길) 운영</a></td>
-		      <td>
-		      	
-		      	2022-11-22
-		    </tr>
-		    
-		    <tr>
-		      <td>2</td>
-		      <td><a href="">테스트 글 2</a></td>
-		      <td>
-		      	
-		      	2022-11-14
-		    </tr>
-		    
-		    <tr>
-		      <td>3</td>
-		      <td><a href="">테스트1 수정 테스트</a></td>
-		      <td>
-		      	
-		      	2022-11-11
-		    </tr>
-		    
-			
-		  </tbody>
-		</table>
-		<div class="buttons">
-		  <a href="notice_insert.html" class="button is-info">글 등록</a>
-		</div>
-    </div>
-  </section>
+    <section class="section">
+        <div class="container">
+          <h1 class="title">글 등록하기</h1>
+              <form action="" method="post">
+                <table class="table">
+                   <tbody>
+                    <tr>
+                      <th><label for="title">제목</label></th>
+                      <td><input type="text" class="input" maxlength="120" name="title" id="title" placeholder="제목 입력" required /></td>
+                    </tr>
+                    <tr>
+                      <th><label for="content">내용</label></th>
+                      <td><textarea rows="8" cols="150" name="content" id="content" class="textarea" required></textarea></td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="buttons">
+                  <button type="submit" class="button is-success">등록</button>
+                  <button type="reset" class="button is-warning">취소</button>
+                  <a href="notice.html" class="button is-info">목록</a>
+                </div>
+            </form>
+        </div>
+      </section>
   
 <footer class="footer">
   <div class="content has-text-centered">

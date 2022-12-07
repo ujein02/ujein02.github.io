@@ -40,8 +40,9 @@ p.comment2 { max-width:400px; text-overflow:ellipsis; overflow:hidden; white-spa
 </style>
 <script src="https://code.jquery.com/jquery-latest.js"></script>
 <style>
-.frm1{  border:3px solid #eee;}
-.buttons {margin-top:10px; float:right;}
+.content container{margin-top:20px}
+#id { width:780px; float:left; margin-right:30px; margin-left:6px; }
+.buttons{float:right;}
 </style>    
   </head>
 <body>
@@ -156,11 +157,9 @@ p.comment2 { max-width:400px; text-overflow:ellipsis; overflow:hidden; white-spa
 			</script>
 	</div>
 </div>
-	
-  <section class="section">
-    <div class="container">
-	<h2 class="title">로그인</h2>
-	<form name="frm1" id="frm1" action="" method="post" onsubmit="return joinCheck(this)">
+<div class="content container" style="margin-top:100px;">
+	<h2 class="title">회원가입</h2>
+	<form name="frm1" action="" method="post"  class="frm1" onsubmit="return joinAlert(this)">
 		<table class="table">
 			<tbody>
 				<tr>
@@ -168,9 +167,11 @@ p.comment2 { max-width:400px; text-overflow:ellipsis; overflow:hidden; white-spa
 					<td>
 						<div class="form-row">
 							<input type="text" name="id" id="id" placeholder="아이디 입력" class="input" autofocus required />
+							<input type="button" class="button is-info" value="아이디 중복 확인" onclick="idCheck()">
+							<input type="hidden" name="idck" id="idck" value="no">
 						</div>
 						<div>
-							<p></p>
+							<p id="msg" style="padding-left:0.5rem">아직 아이디 중복 체크를 하지 않으셨습니다.</p>
 						</div>
 					</td>
 				</tr>
@@ -178,18 +179,116 @@ p.comment2 { max-width:400px; text-overflow:ellipsis; overflow:hidden; white-spa
 					<th>비밀번호</th>
 					<td><input type="password" name="pw" id="pw" placeholder="비밀번호 입력" class="input" required /></td>
 				</tr>
+				<tr>
+					<th>비밀번호 확인</th>
+					<td><input type="password" name="pw2" id="pw2" placeholder="비밀번호  확인 입력" class="input" required /></td>
+				</tr>
+				<tr>
+					<th>회원이름</th>
+					<td><input type="text" name="name" id="name" placeholder="이름 입력" class="input" required /></td>
+				</tr>
+				<tr>
+					<th>이메일</th>
+					<td><input type="email" name="email" id="email" placeholder="이메일 입력" class="input" required></td>
+				</tr>
+				<tr>
+					<th>생년월일</th>
+					<td><input type="date" name="birth" id="birth" placeholder="생년월일 입력" class="input" required></td>
+				</tr>
+				<tr>
+					<th>연락처</th>
+					<td><input type="tel" name="tel" id="tel" maxlength="11" placeholder="전화번호 숫자만 입력 00000000000" class="input" required></td>
+				</tr>
+				<tr>
+					<th>주소</th>
+					<td><input type="text" name="address1" id="address1" placeholder="기본 주소 입력" class="input" required /><br>
+					<input type="text" name="address2" id="address2" placeholder="상세 주소 입력" class="input" required /><br>
+					<input type="text" name="postcode" id="postcode" style="width:160px;float:left;margin-right:20px;" placeholder="우편번호" class="input">
+					<button id="post_btn" onclick="findAddr()" class="button is-info">우편번호 검색</button>
+					</td>
+				</tr>
 			</tbody>
 		</table>
 		<div class="buttons">
-			<input type="submit" name="submit-btn" class="button is-info" value="로그인">
+			<input type="submit" name="submit-btn" class="button is-info" value="회원가입">
 			<input type="reset" name="reset-btn" class="button is-info" value="취소">
-			<a href="join.html" class="button is-success">회원가입</a>
+			
 		</div>
 	</form>	
 	<script>
+	$(document).ready(function(){
+		$("#id").keyup(function(){
+			$("#idck").val("no");
+			if($(this).val()!=""){
+				$("#msg").html("<strong>아이디 입력중입니다.</strong>");
+			} else {
+				$("#msg").html("아직 아이디 중복 체크를 하지 않으셨습니다.");
+			}
+		});
+	});
 	</script>
+	<script>
+	function idCheck(){
+		if($("#id").val()==""){
+			alert("아이디를 입력하지 않으셨습니다.");
+			$("#id").focus();
+			return;
+		} 
+		var params = {	id : $("#id").val()	} 
+		$.ajax({
+			url:"",	
+			type:"post",		
+			dataType:"json",	
+			data:params,		
+			success:function(result){
+				console.log(result.result);
+				var idChk = result.result;	
+				if(idChk==false){	
+					$("#idck").val("no");
+					$("#msg").html("<strong style='color:red'>기존에 사용되고 있는 아이디 입니다. 다시 입력하시기 바랍니다.</strong>");
+					$("#id").focus();
+				} else if(idChk==true){	
+					$("#idck").val("yes");
+					$("#msg").html("<strong style='color:blue'>사용가능한 아이디 입니다.</strong>");
+				} else if(idck==""){
+					$("#msg").html("<strong>아이디가 확인되지 않았습니다. 다시 시도해주시기 바랍니다.</strong>");
+				}
+			}
+		});
+	}
+	function joinCheck(f){
+		if(f.pw.value!=f.pw2.value){
+			alert("비밀번호와 비밀번호 확인이 서로 다릅니다.");
+			f.pw.focus();
+			return false;
+		}
+		if(f.idck.value!="yes"){
+			alert("아이디 중복 체크를 하지 않으셨습니다.");
+			return false;
+		}
+	}
+	</script>
+	<script>
+	function findAddr() {
+		new daum.Postcode({
+			oncomplete: function(data) {
+				console.log(data);
+				var roadAddr = data.roadAddress;
+				var jibunAddr = data.jibunAddress;
+				document.getElementById("postcode").value = data.zonecode;
+				if(roadAddr !== '') {
+					document.getElementById("address1").value = roadAddr;				
+				} else if(jibunAddr !== ''){
+					document.getElementById("address1").value = jibunAddr;
+				}
+				document.getElementById("address2").focus();
+			}
+		}).open();
+	}
+	</script>
+	<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </div>
-</section>
+
 
 <footer class="footer">
   <div class="content has-text-centered">
