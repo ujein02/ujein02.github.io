@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Home</title>
+	<!-- 헤드 부분 인클루드 -->
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+<link rel="stylesheet" href="resources/css/normalize.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.2.3/motion-ui.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation-prototype.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet" type="text/css">
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/js/foundation.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.2.3/motion-ui.min.js"></script>
+<script>
+  $(document).ready(function(){
+	  $(document).foundation();
+  });
+</script>
+<style>
+body, html { font-family: 'Noto Sans KR', sans-serif; }
+ul { list-style:none; }
+.orbit-slide{height:600px;}
+.orbit-container {height:600px;}
+.small-12 cell > label{font-size:25px;}
+#logo { display:block; width:100px; height:50px; background-image:url(""); background-color:white;
+background-size:90% auto; background-repeat:no-repeat; background-position:center center;  z-index:91;}
+#gnb > ul > li[role="menuitem"] { height:38px; }
+#gnb > ul > li.menu-text[role="menuitem"] { padding-top:0px; padding-bottom:0px; }
+.h1 { padding-top:0.9rem; padding-bottom:0.3rem; }
+.container { clear:both; width:1200px; margin:0 auto; }
+.container::after { content:""; display:block; width:100%; clear:both; }
+#table1 th { border-bottom:1px solid #fff; }
+#footer {height:100px;} 
+.footer-content{height:20px;}
+.footer-nav {	background-color:#2d2d2d; height:80px; box-sizing:border-box; overflow:hidden; }
+.footer-nav > article { clear:both; width:1200px; margin:0px auto; height:80px; }
+.footer-nav > article > div { float:left; }
+.footer-nav-left { color:#fff; width:25%; line-height:px; }
+.footer-nav-center {
+	width:50%; color:#fff;  font-size:13px; padding-top:20px; 
+}
+.footer-nav-right {
+	width:25%; 
+}
+#footer .footer-nav-left .footer-copyright {
+	line-height:80px;
+}
+
+#footer > article > div > ul > li.footer-nav-item { 
+	float:left; width:auto; padding:1.8rem;  
+	min-width:40px;
+}
+#footer > article > div.footer-nav-right > ul > li.footer-nav-item {
+	width:25%; height:25%;
+}
+#logo1{display:block;width:130px;height:auto; background-color:transparent;}
+#logo2{padding-top:20px;}
+.button-group{float:right;}
+.footer-content { color:#fff; width:25%; line-height:80px; }
+.cjbio-pb {background-image:url("./data/map.png");height:500px; padding-top:120px;}
+.page-info{display:block; width:100%; height:460px; background-color:#f4651f;  color:#fff; padding-top:150px;}
+.inner-mission {background-image:url("./data/mission.png"); height:700px; background-size:80% auto; background-repeat:no-repeat; background-position:center center;}
+</style>
+<style>
+.lead, .subheader { white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+</style>
+</head>
+<body>
+<header id="header">
+	<!-- 헤더 부분 인클루드 -->
+	
+<!-- 헤더 내용 기술 -->
+<nav class="top-bar">
+   <div class="top-bar-left" id="gnb">
+   	 <!-- <button class="menu-icon" type="button" data-toggle="responsive-menu"></button> -->
+     <ul class="dropdown menu" data-dropdown-menu>
+       <li class="menu-text" id="logo1"><img src="./data/logo.png" alt="이미지"></li>
+       <li><a href="company.html">Company</a></li>
+       <li><a href="product.html">Product</a></li>
+       <li><a href="#">Service</a></li>
+       <li class="has-submenu">
+			<a href="#">Community</a>
+			<ul class="submenu menu vertical" data-submenu>
+				<li><a href="notice.html">공지사항</a></li>
+				<li><a href="free.html">자유게시판</a></li>
+			</ul>
+    	</li>
+       
+     </ul>
+   </div>
+            
+     <div class="top-bar-right">
+       <ul class="menu">
+          <li><a href="login.html">로그인</a></li>
+          <li><a href="agree.html">회원가입</a></li>
+        </ul>
+     </div>
+  </nav>
+    <!-- End Top Bar -->
+
+    <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
+      <ul class="orbit-container" tabindex="0" style="height: 300px;">
+        <button class="orbit-previous" aria-label="previous"><span class="show-for-sr">Previous Slide</span>&#9664;</button>
+        <button class="orbit-next" aria-label="next"><span class="show-for-sr">Next Slide</span>&#9654;</button>
+        <li class="orbit-slide is-active">
+          <img src="./data/img8.jpg" alt="더미이미지">
+        </li>
+        <li class="orbit-slide">
+          <img src="./data/img9.jpg" alt="더미이미지">
+        </li>
+        <li class="orbit-slide">
+          <img src="./data/img11.jpg" alt="더미이미지">
+        </li>
+        <li class="orbit-slide">
+          <img src="./data/img14.jpg" alt="더미이미지">
+        </li>
+
+      </ul>
+    </div>
+</header>
+	<div class="content" id="content">
+	    <div class="row column text-center">
+	      <h2 class="h1">자유게시판 목록</h2>
+	      <hr>
+	      <div class="container">
+		      <table>
+		      	<thead>
+		      		<tr>
+		      			<th width="80">No</th>
+		      			<th>Title</th>
+		      			<th width="120">RegDate</th>
+		      			<th width="100">Visited</th>
+		      		</tr>
+		      	</thead>
+		      	<tbody>
+		      	
+		      		<tr>
+		      			<td>1</td>
+		      			<td><a href="">테스트5</a></td>
+		      			<td>
+	      					
+	      					2022-12-05
+		      			</td>
+		      			<td>3</td>
+		      		</tr>
+		      	
+		      		<tr>
+		      			<td>2</td>
+		      			<td><a href="">테스트4</a></td>
+		      			<td>
+	      					
+	      					2022-12-05
+		      			</td>
+		      			<td>2</td>
+		      		</tr>
+		      	
+		      		<tr>
+		      			<td>3</td>
+		      			<td><a href="">테스트3</a></td>
+		      			<td>
+	      					
+	      					2022-12-05
+		      			</td>
+		      			<td>4</td>
+		      		</tr>
+		      	
+		      		<tr>
+		      			<td>4</td>
+		      			<td><a href="">테스트2</a></td>
+		      			<td>
+	      					
+	      					2022-12-01
+		      			</td>
+		      			<td>4</td>
+		      		</tr>
+		      	
+		      		<tr>
+		      			<td>5</td>
+		      			<td><a href="freeDetail.html">테스트1</a></td>
+		      			<td>
+	      					
+	      					2022-12-01
+		      			</td>
+		      			<td>4</td>
+		      		</tr>
+		      		
+		      	</tbody>
+		      </table>
+			      	    
+		      	<div class="button-group">
+				  <a class="button" href="freeInsert.html">글쓰기</a>
+				</div>
+			
+	      </div>
+
+	    </div>
+	</div>
+    <footer id="footer" class="footer-nav row expanded collapse">
+        <!-- 푸터 부분 인클루드 -->
+    <!-- 푸터 내용 기술 -->
+    <article class="ft_wrap">
+        <div class="footer-nav-left">
+         <p class="menu-text" id="logo2"><img src="./data/logo1.png" alt="이미지"></p>
+          
+        </div>
+        <div class="footer-nav-center">
+            <p> 개인정보처리방침 <br> CJ제일제당(주) | 주소: CJ제일제당 센터 서울시 중구 동호로 330 | 연락처: 02-6740-1114 <br> 
+            ©2019 CJ CHEILJEDANG CORP. ALL RIGHTS RESERVED</p><br>
+    
+        </div>
+        <div class="footer-nav-right">
+          <ul class="footer-nav-menu-icons">
+            <li class="footer-nav-item">
+              <a href="get-involved/support.html"><img class="footer-social-icon" src="./resources/icon/email-icon.svg" alt=""></a>
+            </li>
+            <li class="footer-nav-item">
+              <a href="https://www.facebook.com/foundation/"><img class="footer-social-icon" src="./resources/icon/facebook-icon.svg" alt=""></a>
+            </li>
+            <li class="footer-nav-item">
+              <a href="https://twitter.com/FoundationCSS"><img class="footer-social-icon" src="./resources/icon/twitter-icon.svg" alt=""></a>
+            </li>
+            <li class="footer-nav-item">
+              <a href="https://www.youtube.com/channel/UCS7eqSwmBYuslPEKeJBq-kg"><img class="footer-social-icon" src="./resources/icon/youtube-icon.svg" alt=""></a>
+            </li>
+          </ul>
+        </div>
+    </article>
+    </footer>    
+    </body>
+    </html>

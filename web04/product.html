@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Home</title>
+	<!-- 헤드 부분 인클루드 -->
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+<link rel="stylesheet" href="resources/css/normalize.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.2.3/motion-ui.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation-prototype.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet" type="text/css">
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/js/foundation.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.2.3/motion-ui.min.js"></script>
+<script>
+  $(document).ready(function(){
+	  $(document).foundation();
+  });
+</script>
+<style>
+body, html { font-family: 'Noto Sans KR', sans-serif; }
+ul { list-style:none; }
+.orbit-slide{height:600px;}
+.orbit-container {height:600px;}
+.small-12 cell > label{font-size:25px;}
+#logo { display:block; width:100px; height:50px; background-image:url(""); background-color:white;
+background-size:90% auto; background-repeat:no-repeat; background-position:center center;  z-index:91;}
+#gnb > ul > li[role="menuitem"] { height:38px; }
+#gnb > ul > li.menu-text[role="menuitem"] { padding-top:0px; padding-bottom:0px; }
+.h1 { padding-top:0.9rem; padding-bottom:0.3rem; }
+.container { clear:both; width:1200px; margin:0 auto; }
+.container::after { content:""; display:block; width:100%; clear:both; }
+#table1 th { border-bottom:1px solid #fff; }
+#footer {height:100px;} 
+.footer-content{height:20px;}
+.footer-nav {	background-color:#2d2d2d; height:80px; box-sizing:border-box; overflow:hidden; }
+.footer-nav > article { clear:both; width:1200px; margin:0px auto; height:80px; }
+.footer-nav > article > div { float:left; }
+.footer-nav-left { color:#fff; width:25%; line-height:px; }
+.footer-nav-center {
+	width:50%; color:#fff;  font-size:13px; padding-top:20px; 
+}
+.footer-nav-right {
+	width:25%; 
+}
+#footer .footer-nav-left .footer-copyright {
+	line-height:80px;
+}
+
+#footer > article > div > ul > li.footer-nav-item { 
+	float:left; width:auto; padding:1.8rem;  
+	min-width:40px;
+}
+#footer > article > div.footer-nav-right > ul > li.footer-nav-item {
+	width:25%; height:25%;
+}
+#logo1{display:block;width:130px;height:auto; background-color:transparent;}
+#logo2{padding-top:20px;}
+.button-group{float:right;}
+.footer-content { color:#fff; width:25%; line-height:80px; }
+.cjbio-pb {background-image:url("./data/map.png");height:500px; padding-top:120px;}
+.page-info{display:block; width:100%; height:460px; background-color:#f4651f;  color:#fff; padding-top:150px;}
+.inner-mission {background-image:url("./data/mission.png"); height:700px; background-size:80% auto; background-repeat:no-repeat; background-position:center center;}
+</style>
+<style>
+.lead, .subheader { white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+</style>
+<style>
+.inner1{background-image:url("./data/bg.jpg"); height:590px; width:1190px; background-size:120% auto; background-repeat:no-repeat; background-position:center center; position:relative; color:#fff;}
+.page-info1{-webkit-text-size-adjust: 100%;    --swiper-theme-color: #007aff;    --swiper-navigation-size: 44px;    line-height: 1.5;    font-size: 14px;    
+        font-family: "Noto Sans", sans-serif;    font-weight: 300;    box-sizing: inherit;    position: absolute;    color: #fff;    top: 200px;}
+.h2{padding-bottom: 65px;    font-size: 32px;    font-weight: 500;    line-height: 1.4;    text-align: center;}
+.desc{line-height: 2;    font-size: 17px; text-align: center; color: #444;}    
+.tastenrich-solutions {display:block; width:100%; height:600px; background-color:#f7e9d5;  color:#444; padding-top:80px;}
+.inner{padding-bottom:10px;}
+.tastenrich-video{display:block; width:100%; height:800px; background-color:#00a569;  color:#fff; padding-top:30px; padding-bottom:20px;}
+.video-box{width:1150px; height:580px;}
+</style>
+</head>
+<body>
+<header id="header">
+	<!-- 헤더 부분 인클루드 -->
+	
+<!-- 헤더 내용 기술 -->
+<nav class="top-bar">
+   <div class="top-bar-left" id="gnb">
+   	 <!-- <button class="menu-icon" type="button" data-toggle="responsive-menu"></button> -->
+     <ul class="dropdown menu" data-dropdown-menu>
+       <li class="menu-text" id="logo1"><img src="./data/logo.png" alt="이미지"></li>
+       <li><a href="company.html">Company</a></li>
+       <li><a href="product.html">Product</a></li>
+       <li><a href="#">Service</a></li>
+       <li class="has-submenu">
+			<a href="#">Community</a>
+			<ul class="submenu menu vertical" data-submenu>
+				<li><a href="notice.html">공지사항</a></li>
+				<li><a href="free.html">자유게시판</a></li>
+			</ul>
+    	</li>
+       
+     </ul>
+   </div>
+            
+     <div class="top-bar-right">
+       <ul class="menu">
+          <li><a href="login.html">로그인</a></li>
+          <li><a href="agree.html">회원가입</a></li>
+        </ul>
+     </div>
+  </nav>
+    <!-- End Top Bar -->
+
+    <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
+      <ul class="orbit-container" tabindex="0" style="height: 300px;">
+        <button class="orbit-previous" aria-label="previous"><span class="show-for-sr">Previous Slide</span>&#9664;</button>
+        <button class="orbit-next" aria-label="next"><span class="show-for-sr">Next Slide</span>&#9654;</button>
+        <li class="orbit-slide is-active">
+          <img src="./data/img8.jpg" alt="더미이미지">
+        </li>
+        <li class="orbit-slide">
+          <img src="./data/img9.jpg" alt="더미이미지">
+        </li>
+        <li class="orbit-slide">
+          <img src="./data/img11.jpg" alt="더미이미지">
+        </li>
+        <li class="orbit-slide">
+          <img src="./data/img14.jpg" alt="더미이미지">
+        </li>
+
+      </ul>
+    </div>
+</header>
+  <div class="page-head brand tastenrich">
+
+<div class="inner1">
+	<div class="page-info1">
+		<h1 class="page-tit1"><span class="hd-area">Taste N rich</span></h1>
+		<p class="page-desc1">REVEAL AUTHENTIC TASTE</p>
+	</div>
+
+	</div>
+</div>
+
+<div id="contents" class="contents">
+
+	<div class="inner center">
+		<h2 class="h2">TasteNrich<sup class="sup">®</sup>, Reveal authentic Taste</h2>
+		<p class="desc up-on-scroll">
+			오늘날, 식품 산업은 자연의 신선함과 건강한 맛을 추구하는 'Naturalness' 시대에 들어섰습니다.<br />
+			소비자들은 식품 원재료의 구성 및 원산지 그리고 가공 방법 등에 관심을 기울이고, 더 나아가 개인의 가치관을 담아 소비하고 있습니다.<br />
+			이제 'Naturalness'는 먹거리의 안전함/신뢰감/투명성 및 지속 가능성이 점점 더 중요해지는 식품 산업에서의 핵심 트렌드입니다.<br />
+			또한, 이러한 니즈와 동시에 소비자들은 여전히 맛과 향, 그리고 식감에 대한 최고의 경험을 원하고 있습니다.
+		</p>
+	</div>
+	
+	<div class="tastenrich-solutions">
+		<div class="inner">
+			<h2 class="h2">TasteNrich<sup class="sup">®</sup> , <span class="txt-em">Natural solution</span> for your newest business!</h2>
+			<p class="desc up-on-scroll">
+				TasteNrich<sup class="sup">®</sup> 는 대부분의 요리에 완벽한 'Clean label' 솔루션을 제공합니다. <br />
+				음식의 맛을 깊고 풍부하게 해줄 뿐만 아니라 첨가물이 들어있지 않은 천연 컨셉의 'Clean label'까지, <br />
+				TasteNrich<sup class="sup">®</sup> 는 원료에 대한 믿음을 올려주는 'Natural Solution'으로써 고객과 소비자의 니즈를 충족시켜줍니다.
+			</p>
+			<img alt="이미지" src="./data/sol.jpg">
+			
+		</div>
+	</div>
+
+	<div class="tastenrich-video">
+		<div class="inner2">
+			<h2 class="h2">VIDEO</h2>
+			<div class="video-box">
+				<iframe width="100%" height="100%" src="https://www.youtube.com/embed/73ci2fO3TfM?wmode=opaque&amp;rel=0" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+			</div>
+		</div>
+	</div>
+	
+    <footer id="footer" class="footer-nav row expanded collapse">
+        <!-- 푸터 부분 인클루드 -->
+    <!-- 푸터 내용 기술 -->
+    <article class="ft_wrap">
+        <div class="footer-nav-left">
+         <p class="menu-text" id="logo2"><img src="./data/logo1.png" alt="이미지"></p>
+          
+        </div>
+        <div class="footer-nav-center">
+            <p> 개인정보처리방침 <br> CJ제일제당(주) | 주소: CJ제일제당 센터 서울시 중구 동호로 330 | 연락처: 02-6740-1114 <br> 
+            ©2019 CJ CHEILJEDANG CORP. ALL RIGHTS RESERVED</p><br>
+    
+        </div>
+        <div class="footer-nav-right">
+          <ul class="footer-nav-menu-icons">
+            <li class="footer-nav-item">
+              <a href="get-involved/support.html"><img class="footer-social-icon" src="./resources/icon/email-icon.svg" alt=""></a>
+            </li>
+            <li class="footer-nav-item">
+              <a href="https://www.facebook.com/foundation/"><img class="footer-social-icon" src="./resources/icon/facebook-icon.svg" alt=""></a>
+            </li>
+            <li class="footer-nav-item">
+              <a href="https://twitter.com/FoundationCSS"><img class="footer-social-icon" src="./resources/icon/twitter-icon.svg" alt=""></a>
+            </li>
+            <li class="footer-nav-item">
+              <a href="https://www.youtube.com/channel/UCS7eqSwmBYuslPEKeJBq-kg"><img class="footer-social-icon" src="./resources/icon/youtube-icon.svg" alt=""></a>
+            </li>
+          </ul>
+        </div>
+    </article>
+    </footer>    
+    </body>
+    </html>
