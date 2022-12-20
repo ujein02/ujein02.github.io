@@ -32,7 +32,7 @@ background-size:90% auto; background-repeat:no-repeat; background-position:cente
 #gnb > ul > li[role="menuitem"] { height:38px; }
 #gnb > ul > li.menu-text[role="menuitem"] { padding-top:0px; padding-bottom:0px; }
 .h1 { padding-top:0.9rem; padding-bottom:0.3rem; }
-.container { clear:both; width:1200px; margin:0 auto; }
+.container { clear:both; width:100%; margin:0 auto; }
 .container::after { content:""; display:block; width:100%; clear:both; }
 #table1 th { border-bottom:1px solid #fff; }
 #footer {height:100px;} 
@@ -40,7 +40,7 @@ background-size:90% auto; background-repeat:no-repeat; background-position:cente
 .footer-nav {	background-color:#2d2d2d; height:80px; box-sizing:border-box; overflow:hidden; }
 .footer-nav > article { clear:both; width:1200px; margin:0px auto; height:80px; }
 .footer-nav > article > div { float:left; }
-.footer-nav-left { color:#fff; width:25%; line-height:px; }
+.footer-nav-left { color:#fff; width:25%; }
 .footer-nav-center {
 	width:50%; color:#fff;  font-size:13px; padding-top:20px; 
 }
@@ -68,6 +68,10 @@ background-size:90% auto; background-repeat:no-repeat; background-position:cente
 </style>
 <style>
 .lead, .subheader { white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.grid-container{padding-bottom: 100px;}
+.callout {height: 356px;}
+.pic img{height: 223px;}
+
 </style>
 <!-- Hotjar Tracking Code for my site -->
 <script>
@@ -90,7 +94,7 @@ background-size:90% auto; background-repeat:no-repeat; background-position:cente
    <div class="top-bar-left" id="gnb">
    	 <!-- <button class="menu-icon" type="button" data-toggle="responsive-menu"></button> -->
      <ul class="dropdown menu" data-dropdown-menu>
-       <a href="index.html" class="menu-text" id="logo1"><img src="./data/logo.png" alt="로고"></a>
+       <li><a href="index.html" class="menu-text" id="logo1"><img src="./data/logo.png" alt="로고"></a></li>
        <li><a href="company.html">Company</a></li>
        <li><a href="product.html">Product</a></li>
        <li class="has-submenu">
@@ -115,8 +119,8 @@ background-size:90% auto; background-repeat:no-repeat; background-position:cente
 
     <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
       <ul class="orbit-container" tabindex="0" style="height: 300px;">
-        <button class="orbit-previous" aria-label="previous"><span class="show-for-sr">Previous Slide</span>&#9664;</button>
-        <button class="orbit-next" aria-label="next"><span class="show-for-sr">Next Slide</span>&#9654;</button>
+        <li><button class="orbit-previous" aria-label="previous"><span class="show-for-sr">Previous Slide</span>&#9664;</button></li>
+        <li><button class="orbit-next" aria-label="next"><span class="show-for-sr">Next Slide</span>&#9654;</button></li>
         <li class="orbit-slide is-active">
           <img src="./data/img8.jpg" alt="더미이미지">
         </li>
@@ -144,12 +148,12 @@ background-size:90% auto; background-repeat:no-repeat; background-position:cente
     
         <div class="show-for-large large-3 cell">
           <img src="./data/img12.jpg" alt="picture of space">
-          <p class="subheader" style="font-weigh:800px;"><br>Genuine Flavor Made from Nature</p>
+          <p class="subheader" style="font-weight: bold;"><br>Genuine Flavor Made from Nature</p>
         </div>
     
         <div class="medium-5 large-3 cell">
           <div class="callout secondary">
-			<form action="" method="post" name="loginForm">
+			<form action="login" method="post" name="loginForm">
               <div class="grid-x">
                 <div class="small-12 cell">
                   <label>Login ID

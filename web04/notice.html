@@ -32,7 +32,7 @@ background-size:90% auto; background-repeat:no-repeat; background-position:cente
 #gnb > ul > li[role="menuitem"] { height:38px; }
 #gnb > ul > li.menu-text[role="menuitem"] { padding-top:0px; padding-bottom:0px; }
 .h1 { padding-top:0.9rem; padding-bottom:0.3rem; }
-.container { clear:both; width:1200px; margin:0 auto; }
+.container { clear:both; width:100%; margin:0 auto;}
 .container::after { content:""; display:block; width:100%; clear:both; }
 #table1 th { border-bottom:1px solid #fff; }
 #footer {height:100px;} 
@@ -68,6 +68,8 @@ background-size:90% auto; background-repeat:no-repeat; background-position:cente
 </style>
 <style>
 .lead, .subheader { white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.breadcrumbs{padding-top: 20px; padding-left: 10px;}
+.breadcrumbs li{ font-size: 15px; font-weight:900}
 </style>
 <!-- Hotjar Tracking Code for my site -->
 <script>
@@ -133,6 +135,14 @@ background-size:90% auto; background-repeat:no-repeat; background-position:cente
       </ul>
     </div>
 </header>
+<nav aria-label="You are here:" role="navigation">
+	<ul class="breadcrumbs">
+	  <li><a href="index.html">Home</a></li>
+	  <li>
+		<span class="show-for-sr">Current: </span> 공지사항
+	  </li>
+	</ul>
+  </nav>
 	<div class="content" id="content">
 	    <div class="row column text-center">
 	      <h2 class="h1">공지사항 목록</h2>
@@ -142,7 +152,7 @@ background-size:90% auto; background-repeat:no-repeat; background-position:cente
 		      	<thead>
 		      		<tr>
 		      			<th width="80">No</th>
-		      			<th>Title</th>
+		      			<th style="text-align: center;">Title</th>
 		      			<th width="120">RegDate</th>
 		      			<th width="100">Visited</th>
 		      		</tr>
