@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>베스트펜</title>
+    <!-- 문서 정보 : 메타포(metaphor)-->
+    <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">    <!-- 코드가 깨지는 경우 방지-->
+    <meta http-equiv="Content-Style-Type" content="text/css">   
+    <meta name="application-name" content="베스트펜">
+    <meta name="subject" content="베스트펜">
+    <meta name="keywords" content="베스트펜">
+    <meta name="description" content="만년필에 대한 정보를 제공하는 웹">
+    <meta name="url" content="https://ujein02.github.io/mobile01">
+    <meta name="author" content="kim ji eun">
+    <meta name="email" content="ujein@naver.com">
+    <meta name="robots" content="index, flow">
+    <meta http-equiv="refresh" content="600">                                                <!-- 10분마다 새로고침-->
+    <meta http-equiv="Page-Enter" content="revealtrans(Duration=1, Transition=12">           <!-- 페이지 전환 효과-->
+    <!-- 오픈 그래프 -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ujein02.github.io/mobile01">                    <!-- 썸네일 설정-->
+    <meta property="og:title" content="베스트펜">
+    <meta property="og:site_name" content="베스트펜">
+    <meta property="og:image" content="siteiamge.jpg">               <!-- 썸네일 이미지 설정-->
+    <meta property="og:image:width" content="1000"> 
+    <meta property="og:image:height" content="400">
+    <meta property="og:locale" content="ko_KR">
+
+    <meta name="twitter:card" content="video">
+    <meta name="twitter:title" content="베스트펜">
+    <meta name="twitter:description" content="만년필에 대한 정보를 제공하는 웹">
+    <meta name="twitter:image" content="siteiamge.jpg">
+
+    <!-- 해상도 및 브라우저 앱 아이콘 및 바로가기 아이콘 설정 -->
+    <link rel="shortcut icon" href="assets/icon/pen.png">
+    <!-- 애플사 기기 아이콘 설정 -->
+    <link rel="apple-mobile-web-app" href="assets/icon/pen.png">
+    <link rel="apple-touch-icon-precomposed" href="favicon-152.png">
+    <!-- iphone 저사양 및 ipod -->
+    <link rel="apple-touch-icon" href="favicon-57.png" sizes="57x57">         <!-- iphone 저사양 및 ipod -->
+    <link rel="apple-touch-icon" href="favicon-76.png" sizes="76x76">
+    <link rel="apple-touch-icon" href="favicon-120.png" sizes="120x120">  
+    <link rel="apple-touch-icon" href="favicon-152.png" sizes="152x152"> 
+    <link rel="apple-touch-icon" href="favicon-180.png" sizes="180x180"> 
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta name="msapplication-TileImage" content="favicon-144.png">
+    
+    <link rel="icon" href="favicon-16.png" sizes="16x16">
+    <link rel="icon" href="favicon-32.png" sizes="32x32">
+    <link rel="icon" href="favicon-48.png" sizes="48x48">
+    <link rel="icon" href="favicon-64.png" sizes="64x64">
+    <link rel="icon" href="favicon-128.png" sizes="128x128">
+
+    <!-- 반응형 및 모바일에서는 스타일의 크기 단위는 vw, vh, %, rem 등과 같이 해당 기기나 콘텐츠의 상대적인 단위를 사용-->
+    
+    <!-- 앱 미리보기 정보****=> content 기재할것-->
+    <!--iOS-->
+    <meta property="al:ios:url" content=" ios 앱 URL" />
+    <meta property="al:ios:app_store_id" content="ios 앱스토어 ID" /> 
+    <meta property="al:ios:app_name" content="ios 앱 이름" /> 
+    <!--Android-->
+    <meta property="al:android:url" content="안드로이드 앱 URL" />
+    <meta property="al:android:app_name" content="안드로이드 앱 이름" />
+    <meta property="al:android:package" content="안드로이드 패키지 이름" /> 
+    <meta property="al:web:url" content="안드로이드 앱 URL" />
+
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <link href="https://vjs.zencdn.net/7.20.3/video-js.css" rel="stylesheet" />
+    
+    <style>
+    .page_tit { font-size:5vw; clear:both; padding-bottom: 2rem; }
+    .ui-header .ui-title { text-align:right; }
+    .img1{width: 80vw;}
+    p {font-size: 4vw;}
+    #logo { width:100%; margin-left: 0; float: left;  }
+    
+    /* 모바일 */
+    @media screen and (max-width:767px) {
+      body, html { margin: 0; padding: 0; }
+      .video-player { min-width:320px; margin: 0; padding: 0; width:100vw; }
+      .vdo1-dimensions { min-width:320px; width:100vw; height: 30vh; }
+      .video-js .vjs-tech { min-width:320px; max-width:767px; height: auto;}
+    }
+    /* 태블릿 */
+    @media screen and (min-width:768px) and (max-width:959px){
+      body, html { margin: 0; padding: 0; }
+      .video-player { min-width:768px; margin: 0; padding: 0; width:100vw; }
+      .vdo1-dimensions { min-width:768px; width:100vw; height: 30vh;}
+      .video-js .vjs-tech { min-width:768px; max-width:959px;height: auto; }
+    }
+    /* 데스크탑 */
+    @media screen and (min-width:960px) {
+      body, html { margin: 0; padding: 0; }
+      .video-player { min-width:960px; margin: 0; padding: 0; max-width:960px;  }
+      .vdo1-dimensions { min-width:960px; max-width:960px; height: 30vh; }
+      .video-js .vjs-tech { min-width:960px; max-width:960px;height: auto; }
+    }
+    
+    </style>
+</head>
+<body class="ui-mobile-viewport ui-overlay-b">
+<div id="page0" data-role="page" class="ui-page ui-page-theme-a ui-page-active">
+    <header class="ui-header" data-role="header" data-theme="a">
+        <h2 class="ui-title" role="heading"><img src="assets/images/logo.svg" alt="이미지" id="logo" >
+            <a href="#page3" class="ui-btn ui-btn-icon-right ui-icon-user" style="z-index: 90%;">BMW</a>
+        </h2>
+       
+        <nav data-role="navbar" data-grid="d" role="navigation" class="nav-glyphish-example ui-navbar">
+            <ul class="ui-grid-d">
+                <li class="ui-block-a">
+                    <a href="#page1" data-icon="edit" data-theme="a" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">Company</span>
+                        <span class="ui-icon ui-icon-comment ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-b">
+                    <a href="#page2" data-icon="shop" data-theme="a" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">Product</span>
+                        <span class="ui-icon ui-icon-mail ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-c">
+                    <a href="#page3" data-icon="bullets" data-theme="a" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">Notice</span>
+                        <span class="ui-icon ui-icon-alert ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-d">
+                    <a href="#page4" data-icon="video" data-theme="a" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">Service</span>
+                        <span class="ui-icon ui-icon-camera ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-e">
+                    <a href="#page5" data-icon="info" data-theme="a" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">QNA</span>
+                        <span class="ui-icon ui-icon-clock ui-icon-shadow"></span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="ui-content" data-role="content">
+        <h1 class="ui-title">인기 상품</h1>
+        <ul class="ui-listview ui-listview-inset ui-corner-all ui-shadow" data-inset="true" data-role="listview">
+            <li class="ui-li-has-thumb ui-first-child">
+                <a href="#page21" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                    <img src="assets/images/pen1.jpg">
+                    <h2>몽블랑 만년필 마이스터스튁 르그랑드 146 골드</h2>
+                    <p>990,000</p>
+                </a>
+            </li>
+            <li class="ui-li-has-thumb">
+                <a href="#page22" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                    <img src="assets/images/pen2.jpg">
+                    <h2>파이롯트 만년필 캡리스 데시모</h2>
+                    <p>225,000</p>
+                </a>
+            </li>
+            <li class="ui-li-has-thumb ui-last-child">
+                <a href="#page23" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                    <img src="assets/images/pen3.jpg">
+                    <h2>라미 만년필 스페셜 에디션 룩스 & 노트 세트 F촉</h2>
+                    <p>140,000</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <footer class="ui-footer"data-role="footer"  data-theme="b" data-position="fixed">
+        <h2 class="ui-title">베스트펜</h2>
+    </footer>
+</div>
+<div id="page1" data-role="page" class="ui-page ui-page-theme-a">
+    <header data-role="header" class="ui-header" data-theme="a">
+        <h2 class="ui-title" role="heading"><a href="#page0"><img src="assets/images/logo.svg" alt="이미지" id="logo" ></a> </h2>
+        <nav data-role="navbar" data-grid="d" role="navigation" class="nav-glyphish-example ui-navbar">
+            <ul class="ui-grid-d">
+                <li class="ui-block-a">
+                    <a href="#page1" data-icon="edit" data-theme="a" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">Company</span>
+                        <span class="ui-icon ui-icon-comment ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-b">
+                    <a href="#page2" data-icon="shop" data-theme="a" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">Product</span>
+                        <span class="ui-icon ui-icon-mail ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-c">
+                    <a href="#page3" data-icon="bullets" data-theme="a" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">Notice</span>
+                        <span class="ui-icon ui-icon-alert ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-d">
+                    <a href="#page4" data-icon="video" data-theme="a" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">Service</span>
+                        <span class="ui-icon ui-icon-camera ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-e">
+                    <a href="#page5" data-icon="info" data-theme="a" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">QNA</span>
+                        <span class="ui-icon ui-icon-clock ui-icon-shadow"></span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="ui-content" data-role="content">
+        <h1 class="ui-title">COMPANY</h1>
+        <ul class="listview" data-role="listview">
+            <li class="ui-li-static ui-body-inherit ui-first-child"><a href="#page11" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">매장소개</a></li>
+            </li>
+            <li class="ui-li-static ui-body-inherit"><a href="#page12" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">사용방법</a></li>
+        </ul>
+    </div>
+    <footer data-role="footer" class="ui-footer" data-theme="b" data-position="fixed">
+        <h3>베스트펜</h3>
+    </footer>
+</div>
+<div id="page11" data-role="page" class="ui-page ui-page-theme-a">
+    <header data-role="header" class="ui-header" data-theme="a">
+        <a href="#page1" class="ui-btn-left ui-btn ui-icon-back ui-btn-icon-left" data-role="button" role="button">Back</a>
+        <h2 class="ui-title" role="heading"><a href="#page0"><img src="assets/images/logo.svg" alt="이미지" id="logo" ></a> </h2>
+        <nav data-role="navbar" data-grid="d" role="navigation" class="nav-glyphish-example ui-navbar">
+            <ul class="ui-grid-d">
+                <li class="ui-block-a">
+                    <a href="#page1" data-icon="edit" data-theme="a" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">Company</span>
+                        <span class="ui-icon ui-icon-comment ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-b">
+                    <a href="#page2" data-icon="shop" data-theme="a" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">Product</span>
+                        <span class="ui-icon ui-icon-mail ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-c">
+                    <a href="#page3" data-icon="bullets" data-theme="a" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">Notice</span>
+                        <span class="ui-icon ui-icon-alert ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-d">
+                    <a href="#page4" data-icon="video" data-theme="a" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">Service</span>
+                        <span class="ui-icon ui-icon-camera ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-e">
+                    <a href="#page5" data-icon="info" data-theme="a" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">QNA</span>
+                        <span class="ui-icon ui-icon-clock ui-icon-shadow"></span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="ui-content" data-role="content">
+        <h1 class="ui-title">매장소개</h1>
+        <img src="assets/images/company.png" alt="이미지" style="width:90vw;">
+        <p> 전화 : 02-2052-6641~3</p>
+        <p>서울 강남구 테헤란로 38길 43 청록빌딩 지하 1층</p>
+        <p>평일 10:00~19:00 / 토, 일, 공휴일 휴무</p>
+    </div>
+    <footer data-role="footer" class="ui-footer" data-theme="b" data-position="fixed">
+        <h3>베스트펜</h3>
+    </footer>
+</div>
+<div id="page12" data-role="page" class="ui-page ui-page-theme-a">
+    <header data-role="header" class="ui-header" data-theme="a">
+        <a href="#page1" class="ui-btn-left ui-btn ui-icon-back ui-btn-icon-left" data-role="button" role="button">Back</a>
+        <h2 class="ui-title" role="heading"><a href="#page0"><img src="assets/images/logo.svg" alt="이미지" id="logo" ></a> </h2>
+        <nav data-role="navbar" data-grid="d" role="navigation" class="nav-glyphish-example ui-navbar">
+            <ul class="ui-grid-d">
+                <li class="ui-block-a">
+                    <a href="#page1" data-icon="edit" data-theme="a" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">Company</span>
+                        <span class="ui-icon ui-icon-comment ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-b">
+                    <a href="#page2" data-icon="shop" data-theme="a" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">Product</span>
+                        <span class="ui-icon ui-icon-mail ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-c">
+                    <a href="#page3" data-icon="bullets" data-theme="a" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">Notice</span>
+                        <span class="ui-icon ui-icon-alert ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-d">
+                    <a href="#page4" data-icon="video" data-theme="a" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">Service</span>
+                        <span class="ui-icon ui-icon-camera ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-e">
+                    <a href="#page5" data-icon="info" data-theme="a" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">QNA</span>
+                        <span class="ui-icon ui-icon-clock ui-icon-shadow"></span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="ui-content" data-role="content">
+        <h1 class="ui-title">사용방법</h1>
+        <strong>만년필 필기 방법</strong>
+        <p>만년필을 제대로 필기하려면 필기 각도와 만년필 펜촉 방향에 대해서 올바른 사용 방식의 이해가 필요합니다.</p>
+        <p>1. 필기 각도는 만년필을 잡았을 때 종이를 기준으로 30~45도 기울 어진 상태로 잡아서 사용하는 것이 좋습니다.</p>
+        <img src="assets/images/use1.jpg" alt="이미지" style="width:90vw;">
+        <p>2. 만년필 펜촉 방향은 펜촉 상단이 하늘을 본 상태로 필기 방향 안쪽 으로 살짝 기울여 사용하는 것이 좋습니다.</p>
+        <img src="assets/images/use2.jpg" alt="이미지" style="width:90vw;">
+        <p>3. 만년필을 강하게 잡고 사용할 경우, 펜촉에 무리가 가 고장이 날 수 있습니다. 만년필을 잡을 때 손에 힘을 빼고 필기를 해주세요.</p>
+        <img src="assets/images/use3.jpg" alt="이미지" style="width:90vw;">
+    </div>
+    <footer data-role="footer" class="ui-footer" data-theme="b" data-position="fixed">
+        <h3>베스트펜</h3>
+    </footer>
+</div>
+<div id="page2" data-role="page" class="ui-page ui-page-theme-a">
+    <header data-role="header" class="ui-header" data-theme="a">
+        <h2 class="ui-title" role="heading"><img src="assets/images/logo.svg" alt="이미지" id="logo" ></h2>
+        <nav data-role="navbar" data-grid="d" role="navigation" class="nav-glyphish-example ui-navbar">
+            <ul class="ui-grid-d">
+                <li class="ui-block-a">
+                    <a href="#page1" data-icon="edit" data-theme="a" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">Company</span>
+                        <span class="ui-icon ui-icon-comment ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-b">
+                    <a href="#page2" data-icon="shop" data-theme="a" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">Product</span>
+                        <span class="ui-icon ui-icon-mail ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-c">
+                    <a href="#page3" data-icon="bullets" data-theme="a" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">Notice</span>
+                        <span class="ui-icon ui-icon-alert ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-d">
+                    <a href="#page4" data-icon="video" data-theme="a" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">Service</span>
+                        <span class="ui-icon ui-icon-camera ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-e">
+                    <a href="#page5" data-icon="info" data-theme="a" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">QNA</span>
+                        <span class="ui-icon ui-icon-clock ui-icon-shadow"></span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="ui-content" data-role="content">
+        <h1 class="ui-title">PRODUCT</h1>
+        <ul class="ui-listview ui-listview-inset ui-corner-all ui-shadow" data-inset="true" data-role="listview" data-filter="true" data-filter-placeholder="Search Station...">
+            <li class="ui-first-child">
+                <a href="#page21" class="ui-btn ui-btn-icon-right ui-icon-carat-r">몽블랑</a>
+            </li>
+            <li>
+                <a href="#page22" class="ui-btn ui-btn-icon-right ui-icon-carat-r">파이롯트</a>
+            </li>
+            <li>
+                <a href="#page23" class="ui-btn ui-btn-icon-right ui-icon-carat-r">라미</a>
+            </li>
+            <li>
+                <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">펠리칸</a>
+            </li>
+            <li>
+                <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">세일러</a>
+            </li>
+      </ul>
+    </div>
+    <footer data-role="footer" class="ui-footer" data-theme="b" data-position="fixed">
+        <h3>여기는 푸터입니다.</h3>
+    </footer>
+</div>
+<div id="page21" data-role="page" class="ui-page ui-page-theme-a">
+    <header data-role="header" class="ui-header" data-theme="a">
+        <a href="#page1" class="ui-btn-left ui-btn ui-icon-back ui-btn-icon-left" data-role="button" role="button">Back</a>
+        <h2 class="ui-title" role="heading"><a href="#page0"><img src="assets/images/logo.svg" alt="이미지" id="logo" ></a> </h2>
+        <nav data-role="navbar" data-grid="d" role="navigation" class="nav-glyphish-example ui-navbar">
+            <ul class="ui-grid-d">
+                <li class="ui-block-a">
+                    <a href="#page1" data-icon="edit" data-theme="a" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">Company</span>
+                        <span class="ui-icon ui-icon-comment ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-b">
+                    <a href="#page2" data-icon="shop" data-theme="a" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">Product</span>
+                        <span class="ui-icon ui-icon-mail ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-c">
+                    <a href="#page3" data-icon="bullets" data-theme="a" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">Notice</span>
+                        <span class="ui-icon ui-icon-alert ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-d">
+                    <a href="#page4" data-icon="video" data-theme="a" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">Service</span>
+                        <span class="ui-icon ui-icon-camera ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-e">
+                    <a href="#page5" data-icon="info" data-theme="a" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">QNA</span>
+                        <span class="ui-icon ui-icon-clock ui-icon-shadow"></span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div data-role="content" role="sub" class="ui-content">
+        <table data-role="table" id="my-table" data-mode="reflow">
+            <h3>몽블랑 만년필 마이스터스튁 르그랑드 146 골드</h3>
+            <img src="assets/images/pen1.jpg" alt="이미지" class="img1">
+            <thead>
+              <tr>
+                <th>가격</th>
+                <th>원산지</th>
+                <th>브랜드</th>
+                <th>설명</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>990,000</td>
+                <td>독일</td>
+                <td>몽블랑</td>
+                <td>몽블랑 제품 중 대중적인 인기 상품으로 흔히 145만년필로 불리는 제품입니다.</td>
+              </tr>
+            </tbody>
+        </table> 
+    </div>
+    <footer data-role="footer" class="ui-footer" data-theme="b" data-position="fixed">
+        <h3>베스트펜</h3>
+    </footer>
+</div>
+<div id="page22" data-role="page" class="ui-page ui-page-theme-a">
+    <header data-role="header" class="ui-header" data-theme="a">
+        <a href="#page1" class="ui-btn-left ui-btn ui-icon-back ui-btn-icon-left" data-role="button" role="button">Back</a>
+        <h2 class="ui-title" role="heading"><a href="#page0"><img src="assets/images/logo.svg" alt="이미지" id="logo" ></a> </h2>
+        <nav data-role="navbar" data-grid="d" role="navigation" class="nav-glyphish-example ui-navbar">
+            <ul class="ui-grid-d">
+                <li class="ui-block-a">
+                    <a href="#page1" data-icon="edit" data-theme="a" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">Company</span>
+                        <span class="ui-icon ui-icon-comment ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-b">
+                    <a href="#page2" data-icon="shop" data-theme="a" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">Product</span>
+                        <span class="ui-icon ui-icon-mail ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-c">
+                    <a href="#page3" data-icon="bullets" data-theme="a" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">Notice</span>
+                        <span class="ui-icon ui-icon-alert ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-d">
+                    <a href="#page4" data-icon="video" data-theme="a" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">Service</span>
+                        <span class="ui-icon ui-icon-camera ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-e">
+                    <a href="#page5" data-icon="info" data-theme="a" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">QNA</span>
+                        <span class="ui-icon ui-icon-clock ui-icon-shadow"></span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div data-role="content" role="sub" class="ui-content">
+        <table data-role="table" id="my-table" data-mode="reflow">
+            <h3>파이롯트 만년필 캡리스 데시모</h3>
+            <img src="assets/images/pen2.jpg" alt="이미지" class="img1">
+            <thead>
+              <tr>
+                <th>가격</th>
+                <th>원산지</th>
+                <th>브랜드</th>
+                <th>설명</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>225,000</td>
+                <td>일본</td>
+                <td>파이롯트</td>
+                <td>[캡리스]는 파이롯트가 개발/제품화한 세계 최초의 캡이 없는 만년필로서, 롱셀러 상품입니다.</td>
+              </tr>
+            </tbody>
+        </table> 
+    </div>
+    <footer data-role="footer" class="ui-footer" data-theme="b" data-position="fixed">
+        <h3>베스트펜</h3>
+    </footer>
+</div>
+<div id="page23" data-role="page" class="ui-page ui-page-theme-a">
+    <header data-role="header" class="ui-header" data-theme="a">
+        <a href="#page1" class="ui-btn-left ui-btn ui-icon-back ui-btn-icon-left" data-role="button" role="button">Back</a>
+        <h2 class="ui-title" role="heading"><a href="#page0"><img src="assets/images/logo.svg" alt="이미지" id="logo" ></a> </h2>
+        <nav data-role="navbar" data-grid="d" role="navigation" class="nav-glyphish-example ui-navbar">
+            <ul class="ui-grid-d">
+                <li class="ui-block-a">
+                    <a href="#page1" data-icon="edit" data-theme="a" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">Company</span>
+                        <span class="ui-icon ui-icon-comment ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-b">
+                    <a href="#page2" data-icon="shop" data-theme="a" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">Product</span>
+                        <span class="ui-icon ui-icon-mail ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-c">
+                    <a href="#page3" data-icon="bullets" data-theme="a" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">Notice</span>
+                        <span class="ui-icon ui-icon-alert ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-d">
+                    <a href="#page4" data-icon="video" data-theme="a" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">Service</span>
+                        <span class="ui-icon ui-icon-camera ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-e">
+                    <a href="#page5" data-icon="info" data-theme="a" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">QNA</span>
+                        <span class="ui-icon ui-icon-clock ui-icon-shadow"></span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div data-role="content" role="sub" class="ui-content">
+        <table data-role="table" id="my-table" data-mode="reflow">
+            <h3>라미 만년필 스페셜 에디션 룩스 & 노트 세트 F촉</h3>
+            <img src="assets/images/pen3.jpg" alt="이미지" class="img1">
+            <thead>
+              <tr>
+                <th>가격</th>
+                <th>원산지</th>
+                <th>브랜드</th>
+                <th>설명</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>140,000</td>
+                <td>독일</td>
+                <td>LAMY</td>
+                <td>일상 생활에 밀접한 글쓰기를 위한 만년필&노트 스페셜 에디션</td>
+              </tr>
+            </tbody>
+        </table> 
+    </div>
+    <footer data-role="footer" class="ui-footer" data-theme="b" data-position="fixed">
+        <h3>베스트펜</h3>
+    </footer>
+</div>
+<div id="page3" data-role="page" class="ui-page ui-page-theme-a">
+    <header data-role="header" class="ui-header" data-theme="a">
+        <h2 class="ui-title" role="heading"><img src="assets/images/logo.svg" alt="이미지" id="logo" ></h2>
+        <nav data-role="navbar" data-grid="d" role="navigation" class="nav-glyphish-example ui-navbar">
+            <ul class="ui-grid-d">
+                <li class="ui-block-a">
+                    <a href="#page1" data-icon="edit" data-theme="a" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">Company</span>
+                        <span class="ui-icon ui-icon-comment ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-b">
+                    <a href="#page2" data-icon="shop" data-theme="a" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">Product</span>
+                        <span class="ui-icon ui-icon-mail ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-c">
+                    <a href="#page3" data-icon="bullets" data-theme="a" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">Notice</span>
+                        <span class="ui-icon ui-icon-alert ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-d">
+                    <a href="#page4" data-icon="video" data-theme="a" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">Service</span>
+                        <span class="ui-icon ui-icon-camera ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-e">
+                    <a href="#page5" data-icon="info" data-theme="a" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">QNA</span>
+                        <span class="ui-icon ui-icon-clock ui-icon-shadow"></span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="ui-content" data-role="content">
+        <h2 class="ui-title">공지사항 목록</h2>
+        <ul class="ui-listview ui-listview-inset ui-corner-all ui-shadow" data-inset="true" data-role="listview" data-filter="true" data-filter-placeholder="Search Notice...">
+            <li data-role="list-divider" role="heading" class="ui-li-divider ui-bar-inherit ui-li-has-count ui-first-child">2022-12-26 월
+                <span class="ui-li-count ui-body-inherit">2</span>
+            </li>
+            <li>
+                <a href="#page31" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                    <h2>공지사항 테스트 제목1</h2>
+                    <p>공지사항 테스트 내용1</p>
+                    <p class="ui-li-aside">
+                        <strong>6:24</strong>PM</p>
+                </a>
+            </li>
+            <li>
+                <a href="#page32" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                    <h2>공지사항 테스트 제목2</h2>
+                    <p>공지사항 테스트 내용2</p>
+                    <p class="ui-li-aside">
+                        <strong>9:18</strong>AM</p>
+                </a>
+            </li>
+            <li data-role="list-divider" role="heading" class="ui-li-divider ui-bar-inherit ui-li-has-count">2022-12-23 금
+                <span class="ui-li-count ui-body-inherit">1</span>
+            </li>
+            <li class="ui-last-child">
+                <a href="#page33" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                    <h2>공지사항 테스트 제목3</h2>
+                    <p>공지사항 테스트 내용3</p>
+                    <p class="ui-li-aside">
+                        <strong>4:48</strong>PM</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <footer data-role="footer" class="ui-footer" data-theme="b" data-position="fixed">
+        <h3>여기는 푸터입니다.</h3>
+    </footer>
+</div>
+<div id="page31" data-role="page" class="ui-page ui-page-theme-a">
+    <header data-role="header" class="ui-header" data-theme="a">
+        <a href="#page1" class="ui-btn-left ui-btn ui-icon-back ui-btn-icon-left" data-role="button" role="button">Back</a>
+        <h2 class="ui-title" role="heading"><a href="#page0"><img src="assets/images/logo.svg" alt="이미지" id="logo" ></a> </h2>
+        <nav data-role="navbar" data-grid="d" role="navigation" class="nav-glyphish-example ui-navbar">
+            <ul class="ui-grid-d">
+                <li class="ui-block-a">
+                    <a href="#page1" data-icon="edit" data-theme="a" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">Company</span>
+                        <span class="ui-icon ui-icon-comment ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-b">
+                    <a href="#page2" data-icon="shop" data-theme="a" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">Product</span>
+                        <span class="ui-icon ui-icon-mail ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-c">
+                    <a href="#page3" data-icon="bullets" data-theme="a" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">Notice</span>
+                        <span class="ui-icon ui-icon-alert ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-d">
+                    <a href="#page4" data-icon="video" data-theme="a" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">Service</span>
+                        <span class="ui-icon ui-icon-camera ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-e">
+                    <a href="#page5" data-icon="info" data-theme="a" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">QNA</span>
+                        <span class="ui-icon ui-icon-clock ui-icon-shadow"></span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div data-role="content" role="sub" class="ui-content">
+        <h2 class="ui-title">공지사항 상세보기</h2>
+        <table data-role="table" id="my-table" data-mode="reflow">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Title</th>
+                <th>Regdate</th>
+                <th>Content</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>1</th>
+                <td>공지사항 테스트 제목 1</td>
+                <td>2022-12-26</td>
+                <td>공지사항 테스트 내용 1</td>
+              </tr>
+            </tbody>
+        </table> 
+    </div>
+    <footer data-role="footer" class="ui-footer" data-theme="b" data-position="fixed">
+        <h3>베스트펜</h3>
+    </footer>
+</div>
+<div id="page4" data-role="page" class="ui-page ui-page-theme-a">
+    <header data-role="header" class="ui-header" data-theme="a">
+        <h2 class="ui-title" role="heading"><img src="assets/images/logo.svg" alt="이미지" id="logo" ></h2>
+        <nav data-role="navbar" data-grid="d" role="navigation" class="nav-glyphish-example ui-navbar">
+            <ul class="ui-grid-d">
+                <li class="ui-block-a">
+                    <a href="#page1" data-icon="edit" data-theme="a" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">Company</span>
+                        <span class="ui-icon ui-icon-comment ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-b">
+                    <a href="#page2" data-icon="shop" data-theme="a" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">Product</span>
+                        <span class="ui-icon ui-icon-mail ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-c">
+                    <a href="#page3" data-icon="bullets" data-theme="a" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">Notice</span>
+                        <span class="ui-icon ui-icon-alert ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-d">
+                    <a href="#page4" data-icon="video" data-theme="a" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">Service</span>
+                        <span class="ui-icon ui-icon-camera ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-e">
+                    <a href="#page5" data-icon="info" data-theme="a" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">QNA</span>
+                        <span class="ui-icon ui-icon-clock ui-icon-shadow"></span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div data-role="content" role="sub" class="ui-content">
+        <h2 class="ui-title">Service</h2>
+        <div class="player">
+            <div class="video-player">
+               <video id="vdo1" class="video-js" controls preload="auto" data-setup="{}">
+                   <source src="assets/vdo/vdo1.mp4" type="video/mp4" />
+               </video>
+            </div>
+            <div class="btn_lst" id="btn_lst">
+               <ul>
+                   <li><span data-val="assets/vdo/vdo1.mp4">카트리지 만년필 세척과 리필 방법</span></li>
+                   <li><span data-val="assets/vdo/vdo2.mp4">컨버터 만년필 세척과 관리 방법</span></li>
+                   <li><span data-val="assets/vdo/vdo3.mp4">피스톤필러 만년필 세척 및 관리 방법</span></li>
+                </ul>
+            </div>
+          </div>
+          <script src="https://vjs.zencdn.net/7.20.3/video.min.js"></script>
+         <script>
+         $(document).ready(function(){
+           $("#btn_lst li span").click(function(){
+               $("#vdo1_html5_api").attr("src", $(this).attr("data-val"));
+           });
+         });  
+         </script>
+    </div>
+    <footer data-role="footer" class="ui-footer" data-theme="b" data-position="fixed">
+        <h3>베스트펜</h3>
+    </footer>
+</div>
+<div id="page5" data-role="page" class="ui-page ui-page-theme-a">
+    <header data-role="header" class="ui-header" data-theme="a">
+        <h2 class="ui-title" role="heading"><img src="assets/images/logo.svg" alt="이미지" id="logo" ></h2>
+        <nav data-role="navbar" data-grid="d" role="navigation" class="nav-glyphish-example ui-navbar">
+            <ul class="ui-grid-d">
+                <li class="ui-block-a">
+                    <a href="#page1" data-icon="edit" data-theme="a" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">Company</span>
+                        <span class="ui-icon ui-icon-comment ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-b">
+                    <a href="#page2" data-icon="shop" data-theme="a" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">Product</span>
+                        <span class="ui-icon ui-icon-mail ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-c">
+                    <a href="#page3" data-icon="bullets" data-theme="a" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">Notice</span>
+                        <span class="ui-icon ui-icon-alert ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-d">
+                    <a href="#page4" data-icon="video" data-theme="a" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">Service</span>
+                        <span class="ui-icon ui-icon-camera ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-e">
+                    <a href="#page5" data-icon="info" data-theme="a" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">QNA</span>
+                        <span class="ui-icon ui-icon-clock ui-icon-shadow"></span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div role="main" class="ui-content" data-role="content">
+        <h2 class="ui-title">QNA</h2>
+        <div class="ui-container">
+            <div id="table-column-toggle-popup-placeholder" class="ui-screen-hidden"></div><a href="#table-column-toggle-popup" id="table-column-toggle-button" data-rel="popup" data-theme="inherit" class="ui-button ui-shadow ui-corner-all ui-widget ui-button-inherit ui-table-columntoggle-btn ui-mini" role="button" style="display:none">Columns...</a><table data-role="table" id="table-column-toggle" data-mode="columntoggle" class="ui-responsive table-stroke ui-table ui-table-columntoggle">
+                <thead>
+                    <tr>
+                        <th data-priority="2" data-colstart="1" class="ui-table-priority-2 ui-table-cell-visible">No</th>
+                        <th data-colstart="2">Title</th>
+                        <th data-priority="3" data-colstart="3" class="ui-table-priority-3 ui-table-cell-visible">Author</th>
+                        <th data-priority="1" data-colstart="4" class="ui-table-priority-1">Regdate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="ui-table-priority-2 ui-table-cell-visible">1</th>
+                        <td><a href="#page51" data-transition="fade">문의합니다1</a></td>
+                        <td class="ui-table-priority-3 ui-table-cell-visible">테스트</td>
+                        <td class="ui-table-priority-1">2022-12-26</td>
+                    </tr>
+                    <tr>
+                        <th class="ui-table-priority-2 ui-table-cell-visible">2</th>
+                        <td><a href="#page52" data-transition="fade">문의합니다2</a></td>
+                        <td class="ui-table-priority-3 ui-table-cell-visible">작성자</td>
+                        <td class="ui-table-priority-1">2022-12-26</td>
+                    </tr>
+                    <tr>
+                        <th class="ui-table-priority-2 ui-table-cell-visible">2</th>
+                        <td><a href="#page53" data-transition="fade">상품문의합니다</a></td>
+                        <td class="ui-table-priority-3 ui-table-cell-visible">회원2</td>
+                        <td class="ui-table-priority-1">2022-12-26</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <footer data-role="footer" class="ui-footer" data-theme="b" data-position="fixed">
+        <h3>베스트펜</h3>
+    </footer>
+</div>
+<div id="page51" data-role="page" class="ui-page ui-page-theme-a">
+    <header data-role="header" class="ui-header" data-theme="a">
+        <a href="#page1" class="ui-btn-left ui-btn ui-icon-back ui-btn-icon-left" data-role="button" role="button">Back</a>
+        <h2 class="ui-title" role="heading"><a href="#page0"><img src="assets/images/logo.svg" alt="이미지" id="logo" ></a> </h2>
+        <nav data-role="navbar" data-grid="d" role="navigation" class="nav-glyphish-example ui-navbar">
+            <ul class="ui-grid-d">
+                <li class="ui-block-a">
+                    <a href="#page1" data-icon="edit" data-theme="a" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">Company</span>
+                        <span class="ui-icon ui-icon-comment ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-b">
+                    <a href="#page2" data-icon="shop" data-theme="a" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">Product</span>
+                        <span class="ui-icon ui-icon-mail ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-c">
+                    <a href="#page3" data-icon="bullets" data-theme="a" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">Notice</span>
+                        <span class="ui-icon ui-icon-alert ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-d">
+                    <a href="#page4" data-icon="video" data-theme="a" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">Service</span>
+                        <span class="ui-icon ui-icon-camera ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-e">
+                    <a href="#page5" data-icon="info" data-theme="a" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">QNA</span>
+                        <span class="ui-icon ui-icon-clock ui-icon-shadow"></span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div data-role="content" role="sub" class="ui-content">
+        <h2 class="ui-title">QNA 상세보기</h2>
+        <table data-role="table" id="my-table" data-mode="reflow">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Regdate</th>
+                <th>Content</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>1</th>
+                <td>문의합니다. 1</td>
+                <td>2022-12-26</td>
+                <td>문의합니다 내용 1</td>
+              </tr>
+            </tbody>
+        </table> 
+    </div>
+    <footer data-role="footer" class="ui-footer" data-theme="b" data-position="fixed">
+        <h3>베스트펜</h3>
+    </footer>
+</div>
+</body>
+</html>
