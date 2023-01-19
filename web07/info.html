@@ -1,0 +1,536 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Home</title>
+	<!-- 헤드 부분 인클루드 -->
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/me/resources/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/me/resources/css/normalize.css" />
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+<style>
+body, html { font-family: 'Noto Sans KR', sans-serif; margin:0; padding:0;color: #333;
+    line-height: 1.5;
+    text-align: left;
+    letter-spacing: -1px;}
+
+ul { list-style:none; }
+.small-12 cell > label{font-size:25px;}
+#logo { display:block; width:100px; height:50px; background-image:url(""); background-color:white;
+background-size:90% auto; background-repeat:no-repeat; background-position:center center;  z-index:91;}
+
+.h1 { padding-top:0.9rem; padding-bottom:0.3rem; }
+.container { clear:both; width:100%; height:auto; margin:0 auto; }
+.container::after { content:""; display:block; width:100%; clear:both; }
+
+#header{font-size:18px;}
+
+.table{ border-spacing: 1px; border-color:#8f8f8f; text-align: center;margin-bottom: 5rem}
+.tbody{border:1px solid #8f8f8f;}
+.title { text-align: center;padding-top:36px; padding-bottom:70px; }
+.agree_fr { width: 1000px; white-space:pre-wrap; margin: 10px auto; 
+padding: 24px; border:3px solid #eee; height:600px; overflow-y:auto; }
+.form-check{margin-left:200px; padding-top:20px;}
+.form-label{width:100px;}
+.section{height:auto; min-height:100%; padding-bottom:181px; margin-bottom: 40px;}
+
+td a{color:#333;}
+.nav-link dropdown-toggle {color:#333;}
+
+.btn-group, .btn-toolbar{float:right;}
+
+.mainVisual{position: relative; display:block; width:100%; height:70%; background-image:url("./img/main.png"); background-color:white;
+background-size:100% 90%; background-repeat:no-repeat; margin:0 auto; }
+
+.mainVisual .catch{
+    position: absolute;
+    top: 20vh;
+    left: 55%;
+    width: 100%;
+    margin: 0 auto;
+    color: #fff;
+    font-size: 50px;
+    font-weight: 900;
+    line-height: 1.35;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    text-shadow: 3px 3px 2px #555;
+    letter-spacing: -0.03em;
+}
+.catch p {    font-family: "Noto Sans KR",sans-serif;
+    text-align: left;
+    color: #fff;
+    font-size: 4vw;
+    font-weight: 900;
+    line-height: 1.35;
+    text-shadow: 3px 3px 2px #555;
+    letter-spacing: -0.03em;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;}
+
+.sub_visual {
+    position: relative;
+    height: 130px;
+    background: url("./img/bg_sub_visual.jpg") no-repeat center center;
+    text-align: center;
+}
+.lnb {
+    position: relative;
+    width: 188px;
+    z-index: 9;
+    padding: 80px 15px 30px;
+    top: 70px;
+    margin-left: 35px;
+    border: solid 1px #eaeaea;
+    border-top: 0px;
+    float: left;
+}
+
+.lnb_tit_hidden {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 188px;
+    height: 60px;
+    background-color: #4f8ec3;
+    text-align: center;
+    top: 0px;
+    padding-top:1.5vh;
+   
+}
+.sub_nav {
+    color: #475055;
+    font-size: 12px;
+    font-weight: 400;
+    margin-top: 6px;
+    padding-top:15px;
+}
+.sub_nav a span {
+    display: inline-block;
+    font-size: 13px;
+    color: #475055;
+    padding: 0 5px;
+}
+.lnb li.lnb_dep1 {
+    padding: 17px 0;
+    border-bottom: solid 1px #dedede;
+    text-align: left;
+}
+.lnb li.lnb_dep1 a {
+	text-decoration:none;
+    font-size: 15px;
+    color: #475055;
+    font-weight: 400;
+}
+.lnb li.lnb_dep1.on a {
+    text-decoration: underline;
+}
+.lnb li.lnb_dep2 {
+    padding-top: 13px;
+    text-indent: -10px;
+    margin-left: 10px;
+    border-bottom: solid 0px #dedede;
+}
+.lnb li.lnb_dep2 a {
+	text-decoration:none;
+    font-size: 13px;
+    color: #76848b!important;
+    padding-left: 10px;
+}
+.lnb li.lnb_dep2.on a {
+    text-decoration: underline;
+}
+
+.sub_container {
+    position: relative;
+    width: 1000px;
+    overflow: hidden;
+    margin: 0 auto;
+    padding-bottom: 60px;
+    
+}
+
+.sub_nav span {
+    display: inline-block;
+    font-size: 13px;
+    color: #dedede;
+    padding: 0 5px;
+}
+.visual_wrap .sub_nav {
+    color: #fff;
+    font-size: 12px;
+    font-weight: 400;
+    margin-top: 5px;
+}
+.content_area {
+    position: relative;
+    width: 100%;
+    float: left;
+    margin-left: 45px;
+    overflow: hidden;
+    line-height: normal;
+    margin-top:6vh;
+    
+}
+.content_body {
+    position: relative;
+    width: 1000px;
+    margin: 0;
+    padding: 0;
+}    
+.message .message_txt01 {
+    font-size: 30px;
+    color: #373434;
+    margin-bottom: 10px;
+    font-weight: 400;
+    line-height: 1.2em;
+    padding-top:50px;
+    
+}
+
+.message {
+    position: relative;
+    background: url("./img/mini.png") right no-repeat ;
+    overflow: hidden;
+    margin-bottom: 5em;
+    font-size: 18px;
+    line-height: 1.7em;
+}
+    
+.row{padding-bottom: 70px;}
+.col{width:33.3%; height:520px;}
+.carousel-item img{width:100%; height:520px;}
+
+.bbs02_list {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+.bbs02_list ul li {
+    float: left;
+    margin: 0 21px 50px 0;
+}
+.bbs02_list .gallery_wrap {
+    width: 281px;
+    position: relative;
+}
+.bbs02_list .gallery_wrap a.gallery_img {
+    width: 281px;
+    height: 211px;
+}
+
+.bbs02_list .gallery_wrap a .icon_play {
+    position: absolute;
+    z-index: 999;
+    top: 50%;
+    left: 50%;
+    width: 83px;
+    height: 88px;
+    margin: -80px 0 0 -35px;
+    background: url("./img/icon_play.png") no-repeat;
+}
+.gallery_img img{width:280px;}
+.gallery_wrap{    -webkit-text-size-adjust: 100%;
+    color: #333;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: "Noto Sans KR",sans-serif;
+    letter-spacing: -1px;
+    line-height: normal;
+    list-style: none;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    width: 281px;
+    position: relative;}
+
+.bbs02_list .gallery_wrap aside p {
+    display: inline-block;
+    font-size: 12px;
+    color: #6d6d6d;
+    padding: 5px 8px 5px 5px;
+        text-decoration: none;
+    color: #555;
+    float:right;
+}
+.bbs02_list .gallery_wrap a.gallery_txt {
+    font-size: 14px;
+    color: #333;
+    padding: 10px 0 10px 5px;
+    display: block;
+    height: 60px;
+    text-decoration: none;
+}
+#footer{   box-sizing: border-box;
+    display: block;
+    border-top: 1px solid #ddd;
+    background-color: #fff;
+    width:100%;
+    height:181px;
+    font-size: 14px;
+    position : relative;
+  	bottom:0;
+    background: #f1f1f1;
+    }
+
+.foot_bottom {    letter-spacing: -1px;
+	display: block;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 50px;
+    padding-left:120px;
+    background: #f1f1f1;
+    }
+.foot_logo  {
+    float: left;
+    width: 140px;
+    height:181px;
+
+}
+.foot_bottom address {
+    color: #555;
+    font-size: 14px;
+    font-weight: 400;
+}
+.foot_bottom p {
+    color: #777;
+    margin-top: 5px;
+}
+</style>
+
+    <script src="./css/styles.js"></script>
+</head>
+<body>
+<header id="header">
+	<!-- 헤더 부분 인클루드 -->
+    
+
+
+
+
+
+
+<!-- 헤더 내용 기술 -->
+<div class="container">
+    <header class="d-flex align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+      <a href="index.html" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+        <img src="./img/logo.png" alt="logo" />
+      </a>
+
+      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+        <li><a href="index.html" class="nav-link px-3 link-secondary">Home</a></li>
+        <li><a href="./intro.html" class="nav-link px-3 link-secondary" >기관소개</a></li>
+        <li class="nav-item dropdown">
+	        <a class="nav-link dropdown-toggle link-secondary" href="#" role="button" data-bs-toggle="dropdown" >알림</a>
+	        <ul class="dropdown-menu" >
+	          <li><a class="dropdown-item" href="./notice.html">공지사항</a></li>
+	        </ul>
+        </li>
+        <li class="nav-item dropdown">
+	        <a class="nav-link dropdown-toggle link-secondary" href="#"data-bs-toggle="dropdown"  >국민소통</a>
+	        <ul class="dropdown-menu" >
+	          <li><a class="dropdown-item" href="./qna.html">QNA</a></li>
+	        </ul>
+        </li>
+        <li><a href="./info.html" class="nav-link px-3 link-secondary">홍보</a></li>
+        
+      </ul>
+
+      <div class="nav col-3 col-md-auto mb-2 justify-content-center mb-md-0 text-end">
+	      <ul class="menu">
+	        
+		        <a href="./loginForm.html" class="btn btn-outline-primary me-2">로그인</a>
+		        <a href="./agree.html" class="btn btn-primary">회원가입</a>
+	       </ul>
+      </div>
+    </header>
+</div>
+
+</header>
+<section class="section">
+	<div class="container">
+		<div class="sub_visual visual01">
+		<!-- start lnb-->
+			<div id="lnb_wrap" class="lnb">
+				<div class="lnb_tit_hidden">
+					<h2 style="color:#fff;">홍보</h2>
+				</div>
+				<ul>
+					<li class="lnb_dep1"><img alt="" src="./img/icon_home.png">
+						<a href="index.html"><span>환경부</span></a>
+					</li>
+					<li class="lnb_dep1">
+						<a href="intro.html"><span>기관안내</span></a>
+					</li>
+					<li class="lnb_dep1">
+						<a href="#"><span>알림</span></a>
+							<ul>
+								<li class="lnb_dep2"><a href="notice.html">공지사항</a></li>
+							</ul>
+					</li>
+					<li class="lnb_dep1">
+						<a href="#"><span>국민소통</span></a>
+							<ul>
+								<li class="lnb_dep2"><a href="qna.html">QNA</a></li>
+							</ul>
+					</li>
+					<li class="lnb_dep1 on">
+						<a href="info.html"><span>홍보</span></a>
+					</li>
+				</ul>
+			</div>
+			<div class="visual_wrap">
+              <h1 class="title" style="color:#fff"> 홍보 자료 </h1>
+            </div>
+          </div>
+		<div class="sub_container">
+		<div class="content_area">
+			<div class="content_body" id="content_body">
+	            <div class="bbs02_list">
+				<ul>
+					<li>
+						<div class="gallery_wrap">
+							<a href="#" class="gallery_img">
+									<span class="icon_play"></span>
+									<img src="./img/info1.png" alt="">
+									</a>
+								<a href="#"class="gallery_txt" title=""><header>[화학안전주간] 우리가 자라면서 접하는 수많은 화학물질! 얼마나 될까요?</header>
+							</a>
+							<aside>
+								<p>2023-01-04</p>
+							</aside>
+						</div>
+					</li>
+					
+					<li>
+						<div class="gallery_wrap">
+							<a href="#" class="gallery_img">
+							<span class="icon_play"></span>
+							<img src="./img/info2.png"" alt="">
+							</a>
+								<a href="#" class="gallery_txt" title=""><header>2023 환경부 이렇게 일하겠습니다 | 나라를 단단하게 국민을 든든하게
+										</header>
+									</a>
+							<aside>
+								<p>2023-01-03</p>
+							</aside>
+						</div>
+					</li>
+					
+					<li>
+						<div class="gallery_wrap">
+							<a href="#" class="gallery_img">
+											<span class="icon_play"></span>
+											<img src="./img/info3.png" alt="RE100 알아두면 이로운 환경 백과사전 녹색분류체계">
+											</a>
+										<a href="#" class="gallery_txt" title=""><header>[알이백-녹색분류체계 편]무엇이 친환경일까? 한국형 녹색분류체계 딱...
+										</header>
+									</a>
+							<aside>
+								<p>2023-01-02</p>
+							</aside>
+						</div>
+					</li>
+					
+					<li>
+						<div class="gallery_wrap">
+							<a href="#" class="gallery_img">
+											<span class="icon_play"></span>
+											
+													<img src="./img/info4.png" alt="">
+												
+											</a>
+									<a href="#" class="gallery_txt" title=""><header>여러분, 유출지하수, 들어보신 적 있으세요?
+										</header>
+									</a>
+							<aside>
+								<p>2022-12-28</p>
+							</aside>
+						</div>
+					</li>
+					
+					<li>
+						<div class="gallery_wrap">
+							<a href="#" class="gallery_img">
+											<span class="icon_play"></span>
+												<img src="./img/info5.png" alt="">
+												
+											</a>
+										<a href="#" class="gallery_txt" title=""><header>2022년 제3회 화학안전주간 하이라이트!
+										</header>
+									</a>
+							<aside>
+								<p>2022-12-28</p>
+							</aside>
+						</div>
+					</li>
+					
+					<li>
+						<div class="gallery_wrap">
+							<a href="" class="gallery_img">
+											<span class="icon_play"></span>
+											<img src="./img/info6.png" alt="">
+											</a>
+										<a href="#" class="gallery_txt" title=""><header>[쉼플]당신의 손으로 살릴 수 있습니다! 일회용품 없는 건강한 지구를...
+										</header>
+									</a>
+								
+								
+							
+							
+							<aside>
+								<p>2022-12-28</p>
+							</aside>
+						</div>
+					</li>
+					</ul>
+				
+				
+			</div>
+			
+				</div>
+			</div>
+		</div>
+		</div>
+	</div>
+</section>
+<footer id="footer" class="footer-nav row expanded collapse">
+    <!-- 푸터 부분 인클루드 -->
+    
+
+
+
+
+<!-- 푸터 내용 기술 -->
+<div class="container">
+	<div class="foot_bottom">
+		<div>
+			<div class="foot_logo">
+				<a href="/#"><img src="./img/foot_logo.png" alt="환경부"></a>
+			</div>
+			<div>
+				<address>
+					(우)30103 세종특별자치시 도움6로 11 정부세종청사 6동 <span>&nbsp&nbsp|&nbsp&nbsp  민원실 : <a href="tel:1577-8866">1577-8866</a></span>
+				</address>
+				<p>
+					- 본 누리집의 내용은 저작권법에 의해 보호를 받는 저작물로서, 이에 대한 무단 복제 및 배포를 원칙적으로 금하며 누리집에 게재된 이메일 주소의 수집을 거부합니다.<br> 이를 위반 시 관련법에 의해 처벌됨을 알려드립니다.<br>- 누리집 저작권은 환경부에 있습니다.
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+</footer>
+<script>
+	$(document).ready( function () {
+	    $('#tb1').DataTable();
+	} );
+	</script>		
+</body>
+</html>
