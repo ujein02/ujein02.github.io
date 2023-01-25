@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href=./css/normalize.css" />
+    <link rel="stylesheet" href="./css/normalize.css" />
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
 <style>
 body, html { font-family: 'Noto Sans KR', sans-serif; margin:0; padding:0;color: #333;
@@ -154,8 +154,12 @@ background-size:100% 90%; background-repeat:no-repeat; margin:0 auto; }
     overflow: hidden;
     margin: 0 auto;
     padding-bottom: 60px;
-    padding-top: 100px ;
     
+}
+.sub_container {
+    padding-top: 10vh;
+    background: url(./img/bg.jpg) repeat;
+    background-size: 100%;
 }
 
 .sub_nav span {
@@ -304,11 +308,6 @@ background-size:100% 90%; background-repeat:no-repeat; margin:0 auto; }
     color: #777;
     margin-top: 5px;
 }
-.sub_container {
-    padding-top: 10vh;
-    background: url(./img/bg.jpg) repeat;
-    background-size: 100%;
-}
 </style>
 
     <script src="./css/styles.js"></script>
@@ -316,6 +315,12 @@ background-size:100% 90%; background-repeat:no-repeat; margin:0 auto; }
 <body>
 <header id="header">
 	<!-- 헤더 부분 인클루드 -->
+    
+
+
+
+
+
 
 <!-- 헤더 내용 기술 -->
 <div class="container">
@@ -353,57 +358,101 @@ background-size:100% 90%; background-repeat:no-repeat; margin:0 auto; }
     </header>
 </div>
 
-    </header>
-		<div class="row column text-center">
-	      <div class="container" style="width:80%;">
-	      	<div class="sub_visual visual01">
+   
+</header>
+
+   <section class="section">
+    <div class="container">
+    	<div class="sub_visual visual01">
 		<!-- start lnb-->
+			<div id="lnb_wrap" class="lnb">
+				<div class="lnb_tit_hidden">
+					<h2 style="color:#fff;">국민소통</h2>
+				</div>
+				<ul>
+					<li class="lnb_dep1"><img alt="" src="./img/icon_home.png">
+						<a href="index.html"><span>환경부</span></a>
+					</li>
+					<li class="lnb_dep1">
+						<a href="intro.html"><span>기관안내</span></a>
+					</li>
+					<li class="lnb_dep1">
+						<a href="#"><span>알림</span></a>
+							<ul>
+								<li class="lnb_dep2"><a href="notice.html">공지사항</a></li>
+							</ul>
+					</li>
+					<li class="lnb_dep1">
+						<a href="#"><span>국민소통</span></a>
+							<ul>
+								<li class="lnb_dep2 on"><a href="qna.html">QNA</a></li>
+							</ul>
+					</li>
+					<li class="lnb_dep1">
+						<a href="info.html"><span>홍보</span></a>
+					</li>
+				</ul>
+			</div>
 			<div class="visual_wrap">
-              <h1 class="title" style="color:#fff"> 로그인 </h1>
+              <h1 class="title" style="color:#fff"> 국민소통 </h1>
             </div>
           </div>
-          <div class="sub_container">
-	      	<section class="section">
-				
-				<form action="" method="post" name="loginForm">
-					<table class="table">
-						<tbody class="tbody">
-							<tr>
-								<th><label for="id"><strong>아이디</strong></label></th>
-								<td><input type="text" name="id" id="id" size="100" class="form-control" placeholder="아이디 입력" required>
-								<!--  pattern="^[a-z0-9]+$"  -->
-								</td>
-							</tr>				
-							<tr>
-								<th><label for="pw"><strong>비밀번호</strong></label></th>
-								<td><input type="password" name="pw" id="pw"  class="form-control" placeholder="비밀번호 입력" required>
-								<!--  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"  -->
-								</td>
-							</tr>
-						</tbody>
-					</table>
-					<div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-				      		<div class="btn-group me-2" role="group" aria-label="First group">
-						    	<button type="submit" class="btn btn-dark">로그인</button>
-						  	</div>
-					      	<div class="btn-group" role="group" aria-label="Second group">
-						    	<button type="reset" class="btn btn-dark">취소</button>
-						    </div>
-					 </div>
-				</form>
-				<script>
-				function loginFaiure() {
-					alert("로그인 실패");
-				}
-				</script>
-			</section>
+		<div class="sub_container">
+			<h2 class="title">질문 및 답변 상세 내용</h2>
+			<table class="table">
+				<tbody>
+					<tr>
+						<th>구분</th>
+						<td>
+						
+							<span>질문</span>
+							
+						
+						</td>
+					</tr>
+					<tr>
+						<th >공개여부</th>
+						<td>
+						
+							<span>공개</span>
+							
+						
+						</td>
+					</tr>
+					<tr>
+						<th>번호</th>
+						<td>4</td>
+					</tr>
+					<tr>
+						<th>제목</th>
+						<td>문의 글 웹 등록 테스트</td>
+					</tr>
+					<tr>
+						<th>내용</th>
+						<td>문의합니다</td>
+					</tr>
+					<tr>
+						<th>작성자</th>
+						<td>test1</td>
+					</tr>
+					<tr>
+						<th>작성일시</th>
+						<td>2023-01-04 13:35:21.0</td>
+					</tr>
+					<tr>
+						<th>읽은 횟수</th>
+						<td>0</td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+				<div class="btn-group me-2" role="group" aria-label="First group">
+					<a href="qna.html" class="btn btn-dark">목록</a>
+				</div>
+			</div>
 		</div>
-      </div>
-    </div>
-</body>
-<footer id="footer" class="footer-nav row expanded collapse">
-   	<!-- 푸터 부분 인클루드 -->
-  	
+	</section>
+  
 
 
 
@@ -426,5 +475,5 @@ background-size:100% 90%; background-repeat:no-repeat; margin:0 auto; }
 		</div>
 	</div>
 </div>
-</footer>
+</body>
 </html>
