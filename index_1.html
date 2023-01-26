@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JIEUN's PORTFOLIO</title>
+    <!-- 메타포 선언 -->
+    <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">    
+    <meta http-equiv="Content-Style-Type" content="text/css">   
+    <meta name="application-name" content="JIEUN's Portfolio">
+    <meta name="subject" content="JIEUN's Portfolio">
+    <meta name="keywords" content="포트폴리오,백엔드,자바,개발자,신입,신입개발자,포트폴리오">
+    <meta name="description" content="백엔드 개발자를 희망하는 신입개발자에 대한 Portfolio를 제공하는 웹">
+    <meta name="url" content="https://ujein02.github.io">
+    <meta name="author" content="Kim Jieun">
+    <meta name="email" content="ujein02@gmail.com">
+    <meta name="robots" content="index, flow">
+    <meta http-equiv="refresh" content="600">                                               
+    <meta http-equiv="Page-Enter" content="revealtrans(Duration=1, Transition=12">       
+    <!-- 파비콘 -->
+    <link rel="shortcut icon" href="assets/icon/pen.png">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+
+    <link rel="icon" href="assets/icon/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" href="assets/icon/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" href="assets/icon/favicon-96x96.png" sizes="96x96">
+    <!-- 오픈그래프 -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ujein02.github.io">                   
+    <meta property="og:title" content="JIEUN's Portfolio">
+    <meta property="og:site_name" content="JIEUN's Portfolio">
+    <meta property="og:image" content="assets/images/siteiamge.jpg">              
+    <meta property="og:image:width" content="1000"> 
+    <meta property="og:image:height" content="400">
+    <meta property="og:locale" content="ko_KR">
+    <!-- 필수 플러그인 -->
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/lodash.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/dataPage.js"></script>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/dataPage.css">
+    <script src="data.json"></script>
+    <script type="text/javascript" src="http://dmaps.daum.net/map_js_init/v3.js"></script>
+    <script type="text/javascript" src="https://s1.daumcdn.net/svc/original/U03/cssjs/jquery/jquery-1.11.0.js"></script>	
+    <script type="text/javascript" src="https://s1.daumcdn.net/svc/original/U0301/cssjs/JSON-js/fc535e9cc8/json2.min.js"></script>
+    <style>
+    * { margin: 0; padding: 0; }
+    body, html { width: 100%; overflow-x:hidden; }
+    /* 스크롤바 보이지 않게 - Chrome, Safari, Opera */
+    ::-webkit-scrollbar { display:none; }
+    body, html { -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */ }
+
+    #hd { position:fixed; background-color:rgba(33,33,33,0.6); width: 100vw; 
+    height:90px;  top: 0; left: 0; z-index:999; }
+    /* .page { clear:both; width:100vw; height:100vh; overflow-x:hidden; }  */
+    .page_wrap { clear:both; width: 1200px; margin: 0 auto; }    
+    .page_tit { text-align: center; line-height: 2.4;  padding-top: 2rem; }
+
+    .pic_frame { width: 140px; height: 140px; border-radius:80px; 
+    overflow: hidden; margin:0 auto; }
+    .pic1 { display:block; width: 140px; height:auto;}
+
+    .gal_lst li{list-style: none;}
+    .container { width:1000px; margin:20px auto; overflow-x:hidden; } 
+    #maparea { max-height:400px; overflow:hidden; }   
+    .title { text-align: center; font-size:2.5rem; }
+    .table { width:500px; margin:20px auto; }
+    .table tr td { line-height:2; text-overflow:ellipsis; white-space:nowrap; overflow:hidden; }
+    .table tr td:first-child { min-width:300px; font-weight:600; }
+    .table tr td:last-child { max-width:100px; font-weight:500; color:deepskyblue; }
+    #result_form { width: 600px; margin: 10px auto; }
+    #con, #author { border:1px solid #333; line-height:30px; padding:8px; }
+    #con { width:360px; }
+    #author { width:80px; }
+    #btn1 { padding: 8px; line-height: 30px; border:none; background-color: #333;
+    color:#fff; border-radius:5px; width:80px; }
+    </style>
+</head>
+<body>
+    <div id="page1" class="page background">
+        <section class="page_wrap content-wrapper">
+            <h2 class="page_tit">Intro</h2>
+            <div class="pic_frame">
+                <img src="./images/pic.jpg" class="pic1" alt="김기태사진">
+            </div>
+        </section>
+    </div>
+    <div id="page2" class="page background">
+        <section class="page_wrap content-wrapper">
+            <h2 class="page_tit">Gallery</h2>
+            <div class="lst_fr">
+                <ul class="gal_lst">
+                    <li class="item1">
+                        <div class="cate_fr">
+                            <img src="./images/gal01.jpg" alt="위디스플레이" class="full_pic">
+                        </div>
+                        <div class="btn_fr">
+                            <a href="https://github.com/okgunyang/pro01_2202" class="btn primary">Backend</a>
+                            <a href="https://okgunyang.github.io/web01" class="btn primary">Frontend</a>
+                        </div>
+                    </li>
+                    <li class="item2">
+                        <div class="cate_fr">
+                            <img src="" alt="" class="full_pic">
+                            <a href="https://github.com/okgunyang/pro02_2202" class="btn primary">Backend</a>
+                            <a href="https://okgunyang.github.io/web02" class="btn primary">Frontend</a>
+                        </div>
+                    </li>
+                    <li class="item3">
+                        <div class="cate_fr"><img src="" alt="" class="full_pic"></div>
+                    </li>
+                    <li class="item4">
+                        <div class="cate_fr"><img src="" alt="" class="full_pic"></div>
+                    </li>
+                    <li class="item5">
+                        <div class="cate_fr"><img src="" alt="" class="full_pic"></div>
+                    </li>
+                    <li class="item6">
+                        <div class="cate_fr"><img src="" alt="" class="full_pic"></div>
+                    </li>
+                    <li class="item7">
+                        <div class="cate_fr"><img src="" alt="" class="full_pic"></div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
+    <div id="page3" class="page background">
+        <section class="page_wrap content-wrapper">
+            <h2 class="page_tit">Contact</h2>
+            <hr>
+            <section class="container">
+                <div id="maparea">
+                    <div id="map" style="width:100%;height:350px;"></div>
+                    <div id="clickLatlng"></div>
+                    <script>
+                    var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+                        mapOption = { 
+                            center: new kakao.maps.LatLng( 37.6593, 126.7703), // 지도의 중심좌표
+                            level: 3 // 지도의 확대 레벨
+                        };
+            
+                    var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+            
+                    // 지도를 클릭한 위치에 표출할 마커입니다
+                    var marker = new kakao.maps.Marker({ 
+                        // 지도 중심좌표에 마커를 생성합니다 
+                        position: map.getCenter() 
+                    }); 
+                    // 지도에 마커를 표시합니다
+                    marker.setMap(map);
+            
+                    // 지도에 클릭 이벤트를 등록합니다
+                    // 지도를 클릭하면 마지막 파라미터로 넘어온 함수를 호출합니다
+                    kakao.maps.event.addListener(map, 'click', function(mouseEvent) {        
+                        
+                        // 클릭한 위도, 경도 정보를 가져옵니다 
+                        var latlng = mouseEvent.latLng; 
+                        
+                        // 마커 위치를 클릭한 위치로 옮깁니다
+                        marker.setPosition(latlng);
+                        
+                        var message = '클릭한 위치의 위도는 ' + latlng.getLat() + ' 이고, ';
+                        message += '경도는 ' + latlng.getLng() + ' 입니다';
+                        
+                        var resultDiv = document.getElementById('clickLatlng'); 
+                        resultDiv.innerHTML = message;
+                        
+                    });
+                    </script>
+                </div>
+                <hr>
+                <div id="result_area">
+                    <table class="table">
+                        <tbody id="table_data"></tbody>
+                    </table>
+                </div>
+                <div id="result_form">
+                    <input type="text" id="con" name="con" placeholder="하고 싶은 말을 남기세요" maxlength="40">
+                    <input type="text" name="author" id="author" placeholder="이름">
+                    <button type="button" id="btn1">글 작성</button>
+                </div>
+                <script>
+                $(document).ready(function(){
+                    const fileName = "data.json";
+                    var cont = new Object();
+                    $.ajax({
+                            type:"get",
+                            url:fileName,
+                            dataType:"json",
+                            success: function(data){
+                                console.log(data);
+                                $.each(data , function(i){
+                                    str = "<tr>"; 
+                                    str += "<td>"+data[i].con+"</td>";
+                                    str += "<td>"+data[i].author+"</td>";
+                                    str += "</tr>";
+                                    $("#table_data").append(str);
+                                });
+                            },
+                            error:function(){
+                                console.log("통신에러");
+                            }
+                        });
+                    $("#btn1").click(function(){
+                        if($("#con").val()=="" || $("#author").val()==""){
+                            alert("입력하지 않은 내용이 있습니다.");
+                            return false;
+                        }
+            
+                        ins = "<tr>"; 
+                        ins += "<td>"+$("#con").val()+"</td>";
+                        ins += "<td>"+$("#author").val()+"</td>";
+                        ins += "</tr>";
+                        $("#table_data").append(ins);
+                        //var co = JSON.stringify(cont, null, "\t");
+            
+                    });
+                });    
+                function saveToFile_Chrome(oriName, content) {
+                    var fileName = "./"+oriName;
+                    var blob = new Blob([content], { type: 'text/plain' });
+                    objURL = window.URL.createObjectURL(blob);
+                            
+                    // 이전에 생성된 메모리 해제
+                    if (window.__Xr_objURL_forCreatingFile__) {
+                        window.URL.revokeObjectURL(window.__Xr_objURL_forCreatingFile__);
+                    }
+                    window.__Xr_objURL_forCreatingFile__ = objURL;
+                    var a = document.createElement('a');
+                    a.download = fileName;
+                    a.href = objURL;
+                    a.click();//D:\kim6\mobile
+                }
+                function saveToFile_IE(oriName, content) {
+                    var fileName = "./"+oriName;
+                    var blob = new Blob([content], { type: "text/plain", endings: "native" });
+                    window.navigator.msSaveBlob(blob, fileName);
+                    //window.navigator.msSaveOrOpenBlob(blob, fileName);
+                }
+                function isIE() {
+                    return (navigator.appName === 'Netscape' && navigator.userAgent.search('Trident') !== -1) || navigator.userAgent.toLowerCase().indexOf("msie") !== -1;
+                }
+                </script>
+            </section> 
+        </section>
+    </div>
+</body>
+</html>
