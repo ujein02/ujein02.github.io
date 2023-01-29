@@ -70,7 +70,7 @@
                 <section class="page_wrap content-wrapper">
                     <h2 class="page_tit"></h2>
                     <div class="pic_frame">
-                        <img src="./assets/img/pic.jpg" class="pic1" alt="사진">
+                        <img src="./assets/img/pic6.jpg" class="pic1" alt="사진">
                     </div>
                 </section>
                 <a class="btn btn-primary btn-xl" href="#about">더 알아보기 ▼</a>
@@ -80,32 +80,31 @@
         <section class="content-section bg-dark text-white text-center" id="about">
             <div class="container px-4 px-lg-5">
                 <div class="content-section-heading">
-                    <h3 class="text-secondary mb-0">PROFILE</h3>
                     <h2 class="mb-5">About Me</h2>
                 </div>
                 <div class="row gx-4 gx-lg-5">
                     <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
                         <span class="service-icon rounded-circle mx-auto mb-3"><i class="icon-user-female"></i></span>
-                        <h4><strong>Name</strong></h4>
+                        <h4><strong>Profile</strong></h4>
                         <p class="text-faded mb-0">Kim Ji Eun</p>
-                        <p class="text-faded mb-0">ujein02@gmail.com</p>
+                        <p class="text-faded mb-0">경기도 일산동구</p>
                     </div>
                     <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
                         <span class="service-icon rounded-circle mx-auto mb-3"><i class="icon-graduation"></i></span>
                         <h4><strong>Education</strong></h4>
-                        <p class="text-faded mb-0">ujein02@gmail.com</p>
+                        <p class="text-faded mb-0">동국대학교</p>
                     </div>
                     <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
                         <span class="service-icon rounded-circle mx-auto mb-3"><i class="icon-pencil"></i></span>
                         <h4><strong>Training</strong></h4>
-                        <p class="text-faded mb-0">2022.08 ~ 2023.02 자바 웹개발자 과정 (정보처리산업기사) 더조은컴퓨터아트학원
+                        <p class="text-faded mb-0">2022.08 ~ 2023.02 자바 웹개발자 과정 | 더조은컴퓨터아트학원
                         </p>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <span class="service-icon rounded-circle mx-auto mb-3"><i class="icon-badge"></i></span>
                         <h4><strong>Certificate</strong></h4>
-                        <p class="text-faded mb-0">SQL 개발자 (SQLD) 한국데이터산업진흥원</p>
-                        <p class="text-faded mb-0">리눅스 마스터 2급 1차 합격 한국정보통신진흥협회</p>
+                        <p class="text-faded mb-0">SQL 개발자 (SQLD)</p>
+                        <p class="text-faded mb-0">리눅스 마스터 2급 1차 합격</p>
                     </div>
                 </div>
             </div>
@@ -226,120 +225,53 @@
             </div>
         </section>
         <!-- Map-->
-        <div class="map" id="contact">
-            <section class="page_wrap content-wrapper">
-                <h2 class="page_tit">Contact</h2>
-                <hr>
-                <section class="container">
-                    <div id="maparea">
-                        <div id="map" style="width:100%;height:400px;">
-                            <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=64e350262671632f7dbdc21b87057e20"></script>
-                        </div>
-                        <script>
-                            var container = document.getElementById('map');
-                            var options = {
-                                center: new kakao.maps.LatLng(37.6728, 126.7975),
-                                level: 3
-                            };
-                    
-                            var map = new kakao.maps.Map(container, options);
-                        </script>
-
-                        
-                    </div>
-                    <hr>
-                    <!-- <div id="result_area">
-                        <table class="table">
-                            <tbody id="table_data"></tbody>
-                        </table>
-                    </div> -->
-                    <!-- <div id="result_form">
-                        <input type="text" id="con" name="con" placeholder="하고 싶은 말을 남기세요" maxlength="40">
-                        <input type="text" name="author" id="author" placeholder="이름">
-                        <button type="button" id="btn1">글 작성</button>
-                    </div> -->
-                    <script>
-                    $(document).ready(function(){
-                        const fileName = "data.json";
-                        var cont = new Object();
-                        $.ajax({
-                                type:"get",
-                                url:fileName,
-                                dataType:"json",
-                                success: function(data){
-                                    console.log(data);
-                                    $.each(data , function(i){
-                                        str = "<tr>"; 
-                                        str += "<td>"+data[i].con+"</td>";
-                                        str += "<td>"+data[i].author+"</td>";
-                                        str += "</tr>";
-                                        $("#table_data").append(str);
-                                    });
-                                },
-                                error:function(){
-                                    console.log("통신에러");
-                                }
-                            });
-                        $("#btn1").click(function(){
-                            if($("#con").val()=="" || $("#author").val()==""){
-                                alert("입력하지 않은 내용이 있습니다.");
-                                return false;
-                            }
-                
-                            ins = "<tr>"; 
-                            ins += "<td>"+$("#con").val()+"</td>";
-                            ins += "<td>"+$("#author").val()+"</td>";
-                            ins += "</tr>";
-                            $("#table_data").append(ins);
-                            //var co = JSON.stringify(cont, null, "\t");
-                
-                        });
-                    });    
-                    function saveToFile_Chrome(oriName, content) {
-                        var fileName = "./"+oriName;
-                        var blob = new Blob([content], { type: 'text/plain' });
-                        objURL = window.URL.createObjectURL(blob);
-                                
-                        // 이전에 생성된 메모리 해제
-                        if (window.__Xr_objURL_forCreatingFile__) {
-                            window.URL.revokeObjectURL(window.__Xr_objURL_forCreatingFile__);
-                        }
-                        window.__Xr_objURL_forCreatingFile__ = objURL;
-                        var a = document.createElement('a');
-                        a.download = fileName;
-                        a.href = objURL;
-                        a.click();//D:\kim6\mobile
-                    }
-                    function saveToFile_IE(oriName, content) {
-                        var fileName = "./"+oriName;
-                        var blob = new Blob([content], { type: "text/plain", endings: "native" });
-                        window.navigator.msSaveBlob(blob, fileName);
-                        //window.navigator.msSaveOrOpenBlob(blob, fileName);
-                    }
-                    function isIE() {
-                        return (navigator.appName === 'Netscape' && navigator.userAgent.search('Trident') !== -1) || navigator.userAgent.toLowerCase().indexOf("msie") !== -1;
-                    }
-                    </script>
-                </section> 
-            </section>
-        </div>
         <!-- Footer-->
-        <!-- <footer class="footer text-center">
-            <div class="container px-4 px-lg-5">
-                <ul class="list-inline mb-5">
-                    <li class="list-inline-item">
-                        <a class="social-link rounded-circle text-white mr-3" href="https://google.com"><i class="icon-social-google"></i></a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a class="social-link rounded-circle text-white mr-3" href="#page-top"><i class="icon-star"></i></a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a class="social-link rounded-circle text-white" href="https://github.com/ujein02"><i class="icon-social-github"></i></a>
-                    </li>
-                </ul>
-                <p class="text-muted small mb-0">Copyright &copy; Kim Jieun 2023</p>
+        <footer class="footer text-center " id="contact">
+            <div class="container " style="margin-bottom: 3em;">
+                <div class="content-section-heading">
+                    <h2 class="mb-5">Contact</h2>
+                </div>
+                <div class="row gx-3 gx-lg-5">
+                    <div class="col-sm">
+                        <span class="service-icon rounded-circle mx-auto mb-3"><i class="icon-envelope"></i></span>
+                        <h5 class="text-secondary mb-0"><strong>ujein02@gmail.com</strong></h5>
+                    </div>
+                    <div class="col-sm">
+                        <span class="service-icon rounded-circle mx-auto mb-3"><i class="icon-social-github"></i></span>
+                        <h5><a href="https://github.com/ujein02" class="text-secondary mb-0"><strong>https://github.com/ujein02</strong></a></h5>
+                    </div>
+                    <div class="col-sm">
+                        <span class="service-icon rounded-circle mx-auto mb-3"><i class="icon-phone"></i></span>
+                        <h5 class="text-secondary mb-0"><strong>010-0000-0000</strong></h5>
+                    </div>
+                </div>
             </div>
-        </footer> -->
+            <div class="map" id="contact">
+                <section class="page_wrap content-wrapper">
+                    <section class="container">
+                        <div id="maparea">
+                            <div id="map" style="width:100%;height:400px;">
+                                <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=64e350262671632f7dbdc21b87057e20"></script>
+                            </div>
+                            <script>
+                                var container = document.getElementById('map');
+                                var options = {
+                                    center: new kakao.maps.LatLng(37.6728, 126.7975),
+                                    level: 3
+                                };
+                        
+                                var map = new kakao.maps.Map(container, options);
+                            </script>
+    
+                            
+                        </div>
+                        <hr>
+                        
+                    </section> 
+                </section>
+            </div>
+            <p class="text-muted small mb-0">Copyright &copy; Kim Jieun 2023</p>
+        </footer>
         <!-- Scroll to Top Button-->
         <a class="scroll-to-top rounded" href="#page-top"><i class="fas fa-angle-up"></i></a>
         <!-- Bootstrap core JS-->
